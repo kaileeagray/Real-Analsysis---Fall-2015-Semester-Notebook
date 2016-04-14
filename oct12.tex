@@ -1,0 +1,38 @@
+Exercise 32 from $\S 1.5$. 
+\begin{enumerate}
+\item 	Prove that 
+\[ \prod_{j=1}^\infty(1 - a_j)> 0 \text{ if and only if } \sum_{j=1}^\infty a_j < \infty 
+\]
+\begin{pf}
+	To prove the desired statement, we will use the limit comparison test to  show that $\sum_{j=1}^\infty a_j$ converges if and only if $\sum_{j=1}^\infty \log(1-a_j)$ converges. \\
+	$(\Leftarrow)$ Suppose $\sum a_j$ converges. If we assume $a_j\rightarrow 0$, 
+	\[
+	\lim_{j\rightarrow \infty}\frac{a_j}{\log(1-a_j)}= \lim_{x \rightarrow 0}\frac{x}{\log(1-x)}. 
+	\]
+	 \[
+\text{Applying L’Hospital’s Rule, } \lim_{x \rightarrow 0}\frac{x}{\log(1-x)}=\lim_{x \rightarrow 0}\frac{1}{\frac{-1}{1-x}}=-1.
+	\]
+	Thus, if $a_j\rightarrow 0$, $\lim_{j\rightarrow \infty}\frac{a_j}{\log(1-a_j)}=-1$. By the limit comparison test, 
+	\[
+	\lim_{n\rightarrow \infty}\sum_{j=1}^n a_j \text{ converges if and only if } \lim_{n\rightarrow \infty}\sum_{j=1}^n \log(1-a_j) \text{ converges. Thus, }
+	\]
+	\[ \text{ since } \log(1-a_j)<0 \text{ for all } j. \  \sum_{j=1}^\infty \log(1-a_j)> -\infty \text{ if and only if } \sum_{j=1}^\infty a_j < \infty 
+\]
+Since $\sum_{j=1}^\infty \log(1-a_j)> -\infty $, let $\sum_{j=1}^\infty \log(1-a_j)=k$ for $-\infty < k < 0$. Equivalently, 
+\[
+10^{\sum_{j=1}^\infty \log(1-a_j)}=10^k \text{ implies }  \prod_{j=1}^\infty(1 - a_j)=10^k>0.
+\]
+($\Rightarrow$) Assume $\prod_{j=1}^\infty(1 - a_j)> 0 $. Then, let $\prod_{j=1}^\infty(1 - a_j)=k$ for $k>0$. Then,
+\[
+\log\left(\prod_{j=1}^\infty(1 - a_j)\right)=\sum_{j=1}^\infty \log(1-a_j)=\log(k)>-\infty \text{ implies } \lim_{n\rightarrow \infty}\sum_{j=1}^n \log(1-a_j) \text{ converges. }
+\]
+Suppose $ \lim_{j\rightarrow \infty} \log(1-a_j) =0$. Since $\log$ is a continuous function, we can write $ \log(1-\lim_{j\rightarrow \infty} a_j)=0$ which implies $\lim_{j\rightarrow \infty} a_j=0$ Then, as shown above, the limit comparison test implies $\lim_{n\rightarrow \infty}\sum_{j=1}^n a_j$ converges so $\sum_{j=1}^\infty a_j< \infty$.
+\end{pf}
+
+\item Given $\beta \in (0,1)$, exhibit a sequence $\{a_j\}$ such that $\prod(1-a_j)=\beta$.  \\
+If $\prod(1-a_j)=\beta$, then $\ln\left(\prod(1-a_j)\right)=\ln\beta$ and $\sum\ln(1-a_j)=\ln\beta$. From part (1), we know that $\sum\ln(1-a_j)$ converges implies $\sum a_j$ converges. Also, $\ln\beta= \sum \frac{\ln \beta}{2^j}$ so $\sum\ln(1-a_j)=\sum \frac{\ln \beta}{2^j}$ implies
+\[
+e^{\ln(1-a_j)}=e^{\frac{\ln \beta}{2^j}}. \text{ Equivalently, } 1-a_j=e^{\ln \beta^{-2^j}}=\beta^{-2^j}.
+\] 
+Thus, the sequence $a_j=1-\beta^{-2^j}$ satisfies $\prod(1-a_j)=\beta$.
+\end{enumerate}

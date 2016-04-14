@@ -1,0 +1,74 @@
+\begin{enumerate}
+\item	Let $\nu$ be a signed measure on $(X, \M)$. If $\{E_j\}$ is an increasing sequence in $\M$ prove that $\nu(\cup E_i)=\lim \nu (E_i)$. Alternatively, if $\{F_j\}$ is a decreasing sequence in $\M$ with $\nu(F_1)$ finite, then $\nu(\cap F_j)= \lim \nu(F_j)$.
+\begin{pf}
+By the Hahn Decomposition Theorem, we can decompose $X=P \cup N$ where $P$ is positive and $N$ is negative so that $\nu(P)\geq 0$ and $\nu(N)\leq 0$. Then, $\nu$ is a measure on $P$ and $-\nu$ is a measure on $N$.\begin{eqnarray*}
+\nu(\cup E_i) &= &\nu\left(\bigcup(E_i \cap P)\cup \bigcup (E_i \cap N)\right)	\\
+&=& \nu\left(\bigcup(E_i \cap P)\right) + \nu \left( \bigcup (E_i \cap N)\right)	\\
+&=& \nu\left(\bigcup(E_i \cap P)\right) - (-\nu) \left( \bigcup (E_i \cap N)\right)	\\
+&=& \lim \nu\left(E_i \cap P\right) -\lim (-\nu) \left(E_i \cap N\right)	\\
+&=& \lim \left( \nu\left(E_i \cap P\right) -(-\nu) \left(E_i \cap N\right)	\right) \\
+&=& \lim \left( \nu\left(E_i \cap P\right) -(-\nu) \left(E_i \cap N\right)	\right) \\
+&=& \lim \left( \nu\left(E_i \cap P \cup E_i \cap N\right)	\right) \\
+&=& \lim \left( \nu\left(E_i \cap P \cup E_i \cap N\right)	\right) \\
+&=& \lim  \nu\left(E_i \right) 
+\end{eqnarray*}
+Next, suppose $\{F_j\}$ is a decreasing sequence in $\M$ with $\nu(F_1)$ finite. Then, 
+\begin{eqnarray*}
+\nu(\cap F_i) &=& \nu(\cap(F_i \cap P) \cup \cap (F_i \cap N))	\\
+ &=& \nu(\cap(F_i \cap P))+ -\nu( \cap (F_i \cap N))	\\
+  &=& \lim \nu(F_i \cap P)- \lim -\nu( F_i \cap N)	\\
+  &=& \lim \left( \nu(F_i \cap P) + \nu( F_i \cap N)	\right) \\
+  &=& \lim  \nu \left((F_i \cap P) \cup ( F_i \cap N)	\right) \\
+   &=& \lim  \nu \left(F_i\right) 
+\end{eqnarray*}
+\end{pf}
+\item Let $\nu$ be a signed measure on $(X, \M)$.\\
+Since $\nu$ is a signed measure, the Hahn Decomposition Theorem implies there exists a positive set $P$ and a negative set $N$ with $X=P\cup N$.\\
+(a) $L^1(\nu)=L^1(|\nu|)$.
+\begin{pf}
+Consider any $f \in L^1(\nu)$; so $\int |f| d\nu < \infty$. Then, since $\nu = \nu^+ - \nu^-$, 
+\[
+\int |f| d\nu = \int |f|d \nu^+ - \int |f| d \nu^- < \infty. \text{ Thus, } \int |f|d \nu^+< \infty \text{ and } \int |f|d \nu^-< \infty.
+\]
+\[
+\text{Since } \int |f| d |\nu| = \int |f|d\nu^+ + \int |f|d\nu^-, \ \int |f| d |\nu| <\infty. \text{ Hence, } f \in L^1(|\nu|).
+\]
+\end{pf}
+(b) If $f \in L^1(\nu)$, then $|\int f d\nu| \leq \int |f|d |\nu|$.
+\begin{pf}
+	Consider any $f \in L^1(\nu)$; so $\int |f| d\nu < \infty$. Notice
+	\[
+	\left|\int f d\nu\right|= \left|\int fd\nu^+- \int f d \nu^-\right| \leq \left|\int fd\nu^+\right|+\left| \int f d \nu^-\right|\leq \int |f| d \nu^+ + \int |f| d \nu^- = \int |f| d |\nu|.\]
+\end{pf}
+(c) If $E \in \M$, then $|\nu|(E)=\sup \{ |\int_E f d \nu|:|f| \leq 1 \}$.
+\begin{pf}
+By part b, 
+\begin{equation}\tag{i}
+	\left|\int_E f d \nu\right|\leq \int_E |f|d |\nu|\leq \int_E d |\nu|=|\nu|(E).
+\end{equation}
+\[
+\text{Let } f(x) = \left\{
+\begin{array}{ll}
+1 & x \in P \\
+-1 & x \in N
+\end{array} \right.
+\]
+Then, 
+\begin{eqnarray*}
+\left|\int_E f d \nu \right| &=& \left|\int_E f d \nu^+ - \int_E f d \nu^- \right|\\
+&=& \left|\int f \chi_E d \nu^+ - \int f \chi_E d \nu^- \right|\\
+&=& \left| \nu^+(E) - -\nu^-(E) \right|\\
+&=& \left| \nu^+(E) +\nu^-(E) \right|\\
+&=&  \nu^+(E) +\nu^-(E) \\
+&=&  |\nu|(E) \text{, so for the chosen } f
+\end{eqnarray*}
+\begin{equation}\tag{ii}
+	\left|\int_E f d \nu \right| = |\nu|(E)
+\end{equation}
+Thus, by i, ii, 
+\[
+\sup \left\{ \left|\int_E f d \nu \right|: |f| \leq 1 \right\} =  |\nu|(E).
+\]	
+\end{pf}
+
+\end{enumerate}

@@ -1,0 +1,20 @@
+
+\begin{enumerate}
+\item Prove if $\varphi$ and $\psi$ are simple functions, then $\varphi + \psi$ and $\varphi \cdot \psi$ are simple functions.	
+\begin{pf}
+Assume 	$\varphi$ and $\psi$ are simple functions. Then, $\varphi=\sum_{j=1}^{n}z_j\chi_{E_j}$ and $\psi=\sum_{i=1}^{m}\alpha_i\chi_{A_i}$. Then, $\varphi$ and $\psi$ are measurable. The sum of measurable functions is a measurable function, so $\varphi + \psi$ is measurable. Since $\varphi$ and $\psi$ are simple, their range is finite. Let ran$\psi=\{a_i\}_{i=1}^n$ and ran$\varphi=\{ b_j \}_{j=1}^m$ The range of $\varphi + \psi \subseteq \bigcup_{j=1}^m (\{a_i\}_{i=1}^n+b_j)$. Thus, $\psi + \varphi$ is simple. \\
+Similarly, if $\varphi$, $\psi$ are measurable, then $\varphi \cdot \psi$ is measurable. Also, the range of $\varphi \cdot \psi \subseteq \bigcup_{j=1}^m (\{a_i\}_{i=1}^n\cdot b_j)$ which is finite. Thus, $\varphi \cdot \psi$ is simple. 
+\end{pf}
+
+ \url{http://math.sfsu.edu/schuster/Assignment_08_03.pdf} 
+\item Assume that $(X, \M, \mu)$ is complete.
+(a) If $f$ is $\M$-measurable functions and $f=g \ \mu$ almost everywhere, then $g$ is $\M$-measurable.
+\begin{pf}
+	Assume $f$ is a $\M$-measurable function and $f=g \ \mu$ almost everywhere. Define $A=\{ x: f(x)=g(x)\}$ and $B=\{x : f(x) \neq g(x)\}$. Because $f$ is measurable $f^{-1}((a,\infty)) \cap A \in \M$. Also, $f(x)=g(x)$ for all $x \in A$ so $f^{-1}((a,\infty)) \cap A =g^{-1}((a, \infty)) \cap A\in \M$.  Since $g=f \ \mu$ almost everywhere, $\mu(B)=0$. Additionally, $\mu$ is complete, so $\mu(g^{-1}((a,\infty))\cap B)\leq \mu(B)=0$. Thus, $\mu(g^{-1}((a,\infty))\cap B)=0$ implies $g^{-1}((a,\infty))\cap B \in \M$. Notice $X = A \cup B$, so by exercise 5 in $\S 2.1$, $g$ is measurable.  \end{pf}
+
+(b) If $f_n$ is a sequence of $\M$-measurable functions such that $f_n \rightarrow f \ \mu$-almost everywhere, then $f$ is $\M$-measurable. 
+ \begin{pf}
+ Assume $f_n$ is a sequence of $\M$-measurable functions such that $f_n \rightarrow f \ \mu$ almost everywhere. Define $A=\{ x: f_n(x) \rightarrow f(x) \}$ and $B=\{x : f_n(x) \not\rightarrow f(x)\}$. Because $f_n$ are measurable $f_n^{-1}(N) \cap A \in \M$ for all $N \in \B_\R$. Also, $f_n(x) \rightarrow f(x)$ for all $x \in A$ so $\lim_{n\rightarrow \infty}f_n^{-1}(N) \cap A =f^{-1}(N) \cap A\in \M$.  Since $f_n(x) \rightarrow f(x) \ \mu$ almost everywhere, $\mu(B)=0$. Additionally, $\mu$ is complete, so $\mu(f^{-1}(N)\cap B)\leq \mu(B)=0$. Thus, $\mu(f^{-1}(N)\cap B)=0$ implies $f^{-1}(N)\cap B \in \M$. Notice $X = A \cup B$, so by exercise 5 in $\S 2.1$, $f$ is measurable.	
+ \end{pf}
+\end{enumerate}
+

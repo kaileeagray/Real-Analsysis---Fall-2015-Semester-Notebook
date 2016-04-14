@@ -1,0 +1,33 @@
+\begin{enumerate}
+\item Let $f$ and $g$ be integrable functions on $(X,M,\mu)$ and $(Y,N,\nu)$ respectively. If we definite $h: X \times Y \to \mathbb{R}$ by $h(x,y) =f(x)g(y)$, prove that $h$ is integrable and \[\int h d(\mu \times \nu) = \int f d \mu \int g d\nu.\]
+\begin{pf}
+Suppose $f,g$ are simple functions with $h=fg$ and $f = \sum a_i \chi_{A_i}$ and $g = \sum b_j \chi_{B_j}$. Thus, $h=\sum \sum a_i b_j \chi_{A_i \cap B_j }$ and 
+\[
+\int h d(\mu \times \nu) = \int  \sum \sum a_i b_j \chi_{A_i \cap B_j } d(\mu \times \nu)=\sum \sum a_i b_j \mu (A_i)\nu(B_j)
+\]
+\[
+=\sum  a_i\mu (A_i) \sum b_j \nu(B_j) = \int f d\mu \int g d \nu.
+\]\end{pf}
+\item Let $f(x,y)=ye^{-(1+x^2)y^2}$. Use \[
+\int_{[0, \infty)}\left( \int_{[0, \infty)}f(x,y)dx\right)dy =\int_{[0, \infty)}\left( \int_{[0, \infty)}f(x,y)dy\right)dx \text{ to prove } \int_0^\infty e^{-x^2}dx=\frac{\sqrt{\pi}}{2}.
+\]
+By Tonelli, since $f(x,y)=ye^{-(1+x^2)y^2} \in L^1$, the following equality holds: \[\int_{[0, \infty)}\left( \int_{[0, \infty)}f(x,y)dx\right)dy =\int_{[0, \infty)}\left( \int_{[0, \infty)}f(x,y)dy\right)dx.\]
+\begin{eqnarray*}
+	\text{Also, } \int_{[0, \infty)}\left( \int_{[0, \infty)}ye^{-(1+x^2)y^2}dx\right)dy & = & \int_{[0, \infty)}ye^{-y^2}\left( \int_{[0, \infty)}e^{-x^2y^2}dx\right)dy. \text{ Let } u = xy, \text{ then } du = ydx \\
+	& = & \int_{[0, \infty)}e^{-y^2}\left( \int_{[0, \infty)}e^{-u^2}du\right)dy\\
+	& = & \int_{[0, \infty)}e^{-y^2}dy\left( \int_{[0, \infty)}e^{-u^2}du\right)\\
+	& = & \left( \int_{[0, \infty)}e^{-x^2}dx\right)^2.\\
+\end{eqnarray*}
+\begin{eqnarray*}
+	\text{ Let } u = y^2 \text{ then } du = 2ydy. 	\int_{[0, \infty)}\left( \int_{[0, \infty)}ye^{-(1+x^2)y^2}dy\right)dx & = & \frac{1}{2} \int_{[0, \infty)}\left( \int_{[0, \infty)}e^{-(1+x^2)u}du\right)dx\\
+	& = & \frac{1}{2}\int_{[0, \infty)}\left( -\frac{1}{1+x^2}e^{-(1+x^2)u}\right)_{0}^\infty dx\\
+	 &=&  \frac{1}{2}\int_{[0, \infty)} -\frac{1}{1+x^2}\left(\lim_{u \rightarrow \infty}e^{-(1+x^2)u}-e^{0} \right)dx   \\
+	& = & \frac{1}{2}\int_{[0, \infty)} \frac{1}{1+x^2}dx\\
+	& = & \frac{1}{2}\tan^{-1}x |_0^\infty\\
+	&  = & \frac{1}{2}\left(\lim_{x \rightarrow \infty}\tan^{-1}x - \tan^{-1}(0)\right)\\
+	& = & \frac{1}{2}\frac{\pi}{2}
+\end{eqnarray*}
+\[
+\text{Thus, } \left( \int_{[0, \infty)}e^{-x^2}dx\right)^2= \frac{\pi}{4} \text{ and so } \int_{[0, \infty)}e^{-x^2}dx= \frac{\sqrt{\pi}}{2}.
+\]
+\end{enumerate}

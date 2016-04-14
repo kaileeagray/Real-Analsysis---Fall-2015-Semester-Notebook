@@ -1,0 +1,55 @@
+\begin{rmk}
+This section develops tools we will use to construct measures.	
+\end{rmk}
+
+\begin{dfn} 
+	An outer measure on $X\neq \O$ is a function $\mu^*: \sP(X) \rightarrow [0, \infty]$ that satisfies\[
+	\begin{array}{ll}
+	\mu^*(\O)=0,\\
+	\mu^*(A) \leq \mu^*(B) \text{ if } A \subset B, \\
+	\mu^*\left( \bigcup_1^\infty A_j  \right) \leq \sum_1^\infty \mu^*(A_j)
+	\end{array}\]
+\end{dfn}
+\begin{prop}
+Let $\E \subset \sP(X)$ and define $\rho: \E \rightarrow [0, \infty]$ be such that $\O \in \E, X \in \E, \rho(\O)=0$. For any $A \subset X$, define
+\[
+\mu^*(A)=  \inf  \left\{ \sum_1^\infty \rho(E_j): E_j \in \E, A \subset \bigcup_1^\infty E_j   \right\}
+\]	
+Then, $\mu^*$ is an outer measure.
+\end{prop}
+\begin{dfn}[$\mu^*$-measurable]
+A set $A \subset X$ is called $\mu^*$-measurable if \[
+	\mu^*(E)= \mu^*(E \cap A) + \mu^*(E \cap A^c) \text{ for all } E \subset X.
+	\]
+\end{dfn}
+\begin{rmk}
+Note $\mu^*(E) \leq \mu^*(E \cap A) + \mu^*(E \cap A^c$ is true form any $A, E$.	
+\end{rmk}
+
+\begin{thm}[Carathéodory's Theorem]
+If $\mu^*$ is an outer measure on $X$, the collection $\M$ of $\mu^*$-measurable sets is a $\sa$ and the restriction of $\mu^*$ to $\M$ is a complete measure.
+\end{thm}
+\begin{dfn}[premeasure]
+	If $\A \subset \sP(X)$ is an algebra, a function $\mu_0: \A \rightarrow[0, \infty]$ will be called a premeasure if
+	\begin{enumerate}
+	\item $\mu_0(\O)=0$
+	\item $\text{if } \{A_j\}_1^\infty \text{ is a sequence of disjoint sets in } \A \text{ such that } \cup_1^\infty A_j \in \A, \text{ then } \mu_0(\cup_1^\infty A_j)= \sum_1^\infty\mu_0(A_j)$	 
+	\end{enumerate}
+\end{dfn}
+
+\begin{prop} Let $\mu_0$ be a premeasure on $\A$ and 
+\[
+\mu^*(A)=  \inf  \left\{ \sum_1^\infty \mu_0(E_j): E_j \in \E, A \subset \bigcup_1^\infty E_j   \right\} \text{, then }
+\]		
+\begin{enumerate}
+\item $\mu^*| \A = \mu_0$
+\item every set in $\A$ is $\mu^*$-measurable	
+\end{enumerate}
+
+\end{prop}
+
+
+
+
+
+

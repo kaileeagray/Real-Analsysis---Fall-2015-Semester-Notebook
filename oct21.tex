@@ -1,0 +1,62 @@
+\begin{enumerate}
+	\item If $f \in L^+$, let $\lambda(E)=\int_E f d\mu$ for $E \in \M$. Then, $\lambda$ is a measure on $\M$, and for any $g \in L^+$, $\int g \ d\lambda=\int fg\  d \mu$.
+\begin{pf}
+	First, we will show that $\lambda$ is a measure. Notice 
+	\[
+	\lambda(\O) = \mathop{\mathlarger{\int}_{\O}}f \ d\mu = \mathop{\mathlarger{\int}}f \chi_{\O} \ d\mu =\mathlarger{\int}f\cdot0 \ d\mu=0\text{. Thus, }\lambda(\O)=0.
+	\] Next consider a disjoint collection of sets $\{E_j\}_{i=1}^\infty \subset \M$. Then, 
+	\[
+	\lambda\left( \bigcup_{j=1}^\infty E_i \right)=\mathop{\mathlarger{\int}_{\bigcup_{j=1}^\infty E_i}}f \ d\mu=\mathop{\mathlarger{\int}}f \mathlarger{\chi}_{\ _{\{\bigcup_{j=1}^\infty E_i\}}} \ d\mu= \mathop{\mathlarger{\int}}f \sum_{i=1}^\infty \mathlarger{\chi}_{\ _{E_i}} \ d\mu
+	\]
+	\[
+	= \sum_{i=1}^\infty\mathop{\mathlarger{\int}}f\mathlarger{\chi}_{\ _{E_i}} d\mu=\sum_{i=1}^\infty\mathop{\mathlarger{\int}_{E_i}}f d\mu=\sum_{i=1}^\infty\lambda(E_i).
+	\]
+	Therefore $\lambda$ is countably sub-additive over disjoint unions; $\lambda$ is a measure.\\
+	Next, by Theorem 2.10, $g \in L^+$ implies there is a sequence $\{g_j\}$ of simple functions such that $0 \leq g_1 \leq g_2 \leq \cdots \leq g$ such that $g_j \rightarrow g$ pointwise. Since $g_j$ are simple functions, for all $j$ we can write $g_j=\sum_{i=1}^nz_i \chi_{E_i}$ for $E_i=g_j^{-1}(\{z_i\})$ where range$(g_j)=\{z_1, z_2, \cdots, z_n\}$. Then, for all $g_j$ we have 
+	\[
+	\begin{array}{lll}
+		\vspace{5mm}
+	\mathlarger{\int}g_j \ d\lambda & = \sum\limits_{i=1}^n z_i \lambda(E_i) & \text{ definition of integral of simple functions on p. 49}\\
+	\vspace{5mm}
+	 &= \sum\limits_{i=1}^n z_i \mathop{\mathlarger{\int}_{E_i}}f d\mu &\text{ definition of } \lambda \\
+	 \vspace{5mm}
+	 &= \mathop{\mathlarger{\int}_{E_i}}\sum\limits_{i=1}^n z_i f d\mu & \\
+	 	\vspace{5mm}
+	 	 &= \mathop{\mathlarger{\int}}\sum\limits_{i=1}^n z_i \mathlarger{\chi}_{\ _{E_i}} f d\mu & \\
+	 	\vspace{5mm}
+	 	 &= \mathop{\mathlarger{\int}}g_j f d\mu & \\
+	\end{array}
+	\]
+	Then, by the Monotone Convergence Theorem, since $g_j \rightarrow g$, 
+	\[
+\mathlarger{\int}g\ d\lambda =	\lim_{j\rightarrow \infty}\mathlarger{\int}g_j \ d\lambda =	\lim_{j\rightarrow \infty}\mathlarger{\int}g_j f d\mu =	\mathlarger{\int}\lim_{j\rightarrow \infty} g_j f d\mu=\mathlarger{\int} g f d\mu
+	\]
+\end{pf}
+	\item If $f \in L^+$ and $\mathlarger{\int} f < \infty$ for every $\epsilon>0$ there exists $E \in \M$ such that $\mu(E)< \infty$ and $\mathlarger{\int}_E f > \left(\mathlarger{\int f} \right) - \epsilon$. 
+\begin{pf}
+	Assume $f \in L^+$ and $\mathlarger{\int} f < \infty$. Since $f$ is measurable and $\mathlarger{\int} f < \infty$, $f$ is integrable and defined as
+	\[
+\mathlarger{\int} f\ d \mu = \sup \left\{ \mathlarger{\int} \phi \ d \mu : 0 \leq \phi \leq f, \text{ where } \phi \text{ is simple}\right\}.
+	\]
+	Thus, for any $\epsilon>0$, there exists some simple function $\phi$ such that 
+	\[
+	\mathlarger{\int} f\ d \mu - \epsilon < \mathlarger{\int} \phi \ d \mu < \infty.
+	\]
+Because $\phi$ is a simple function we can write
+\[
+\phi = \sum_{i=1}^\infty a_i \chi_{\ _{E_i}} \text{ and so } \mathlarger{\int} \phi \ d \mu = \sum_{i=1}^\infty a_i \mu(E_i)< \infty.
+\]
+If $\mu(E_k)= \infty$ for some $k$, then since $\sum_{i=1}^\infty a_i \mu(E_i)< \infty$, $a_k=0$. So, rewrite $\phi=\sum_{i=1}^\infty \alpha_i \mu(B_i)$ with $\alpha_i \neq 0$ and $\mu(B_i)< \infty$. Since $\mu(B_i) < \infty$, $\mu(\bigcup_{i=1}^\infty B_i)< \infty$. 
+Now, let $E = \bigcup_{i=1}^\infty B_i$, so $\mu(E)< \infty$. Since the $\phi=0$ everywhere outside of $E$ and because $\phi \leq f$ we can write 
+\[
+\mathlarger{\int} \phi \ d \mu= \mathlarger{\int}_E \phi \ d \mu \leq \mathlarger{\int}_E  f \ d \mu.
+\]
+\[
+\text{Therefore, } \mathlarger{\int} f\ d \mu - \epsilon < \mathlarger{\int} \phi \ d \mu \leq \mathlarger{\int}_E  f \ d \mu.
+\]
+Thus, for every $\epsilon>0$, there exists $E \in \M$ such that $\mu(E)< \infty$ and 
+\[
+\mathlarger{\int}_E f > \left(\mathlarger{\int f} \right) - \epsilon. 
+\]
+\end{pf}
+\end{enumerate}

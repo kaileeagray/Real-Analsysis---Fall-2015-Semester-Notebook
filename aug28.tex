@@ -1,0 +1,49 @@
+\subsection{August 28 Group Assignment}
+\begin{enumerate}
+
+
+\item Show that the intersection of two $\sigma$-algebras is a $\sigma$-algebra.\begin{pf}
+	Let $\M, \A$ be any $\sa$s on some set $X$. We will show $\M \cap \A$ is a $\sa$. Because $\M$ and $\A$ are $\sa$s, $X \in \M, \A$ and $\emptyset \in \M, \A$. Therefore $X, \emptyset \in \M \cap \A$, so $\M \cap \A$ is nonempty. Consider some $E \in \M \cap \A$. Then $E \in \M$ and $E \in \A$. Since $\M, \A$ are $\sa$s, $E \in \M$ and $E \in \A$ imply $E^c \in \M$ and $E^c \in \A$. Thus, $E^c \in \M \cap \A$. Consider $\{E_i\}_{i=1}^\infty \subset \M \cap \A$. Then, for all $i$, $E_i \in \M$ and $E_i \in \A$. $\M$ and $\A$ are closed under countable unions, so $\bigcup_{i=1}^\infty E_i \in \M$ and $\bigcup_{i=1}^\infty E_i \in \A$. Hence, $\bigcup_{i=1}^\infty E_i \in \M\cap \A$. Thus the intersection of any two $\sa$s is a $\sa$. 
+\end{pf}
+
+
+\item Show that an algebra $\A$ is a $\sa$ if and only if it is closed under countable increasing unions.
+
+\begin{pf}
+Assume $\A$ is a $\sa$. Then, $\A$ is closed under countable unions so $\A$ must be closed under countable increasing unions. \\
+
+Let $\A$ be an algebra on some set $X$ that is closed under countable increasing unions. Then, consider a countable collection of sets in $\A$, namely $\{E_i\}_{i=1}^\infty$. To show $\A$ is a $\sa$ we must show $\bigcup _{i=1}^\infty E_i \in \A$. Define $F_n = \bigcup _{j=1}^n E_j$. Since $\A$ is an algebra, $\A$ is closed under finite unions, so $F_n \in \A$ for all $n$. Further, $\{F_j \}_{j=1}^\infty \subset \A$. Additionally, notice $F_1=E_1$, $F_2 = E_1 \cup E_2$, $F_3 = E_1 \cup E_2 \cup E_3, \cdots$ so $F_1 \subseteq F_2 \subseteq F_3 \subseteq \cdots$. Thus, $\{F_j \}_{j=1}^\infty$ is an increasing collection of sets. Because $\A$ is closed under countable increasing unions, $\bigcup_{j=1}^\infty F_j \in \A$. But $\bigcup_{j=1}^\infty F_j = \bigcup _{i=1}^\infty E_i $. Thus, $\bigcup _{i=1}^\infty E_i \in \A$ so we have shown $\A$ is a $\sa$. 
+\end{pf}
+
+\item Prove that the collection of countable or co-countable sets is a $\sa$.
+
+\begin{pf}
+ Let $\A = \{E \subset X : E \text{ is countable or } E^c $ is co-countable$\}$. We will show that $\A$ is a $\sa$ on $X$. Since $|\emptyset|=0$, $\emptyset$ is countable which implies $\emptyset \in \A$. Also, $X^c = \emptyset$, so $X \in \A$. Consider any $A \in \A$. Then, either $A$ is countable or $A^c$ is countable. If $A$ is countable, $(A^c)^c$ is countable, so $A^c \in A$. If $A^c$ is countable, then $A^c \in \A$. \\
+ Now, consider $\{A_i\}_{i=1}^\infty \subset \A$. To show $\A$ is a $\sa$ we must show $\bigcup_{i=1}^\infty A_i \in \A$. If for all $i \geq 1, A_i$ is countable, then $\bigcup_{i=1}^\infty A_i$ is countable since the countable union of countable sets is countable. Thus, since $\bigcup_{i=1}^\infty A_i$ is countable, $\bigcup_{i=1}^\infty A_i \in \A$. \\
+ Suppose there exists a least one $A_k \in \A$ for that is not countable. Then, $(A_k)^c$ is countable. Also, $\left(\bigcup_{i=1}^\infty A_i\right)^c = \bigcap_{i=1}^\infty (A_i)^c \subset (A_k)^c$. Since $(A_k)^c$ is countable, $\left(\bigcup_{i=1}^\infty A_i\right)^c$ must be countable. Thus, $\bigcup_{i=1}^\infty A_i \in \A$. 
+ 
+\end{pf}
+
+\item Let $\{ A_k \}_{k=1}^\infty$ be a countable collection of sets in a $\sa$, $\A$. Prove there exist disjoint sets $\{F_k\}_{k=1}^\infty$ in $\A$ such that $\bigcup_{k=1}^\infty A_k = \bigcup_{k=1}^\infty F_k $.
+\begin{pf}
+	Consider a countable collection of sets in a $\sa$ $\A$, $\{ A_k \}_{k=1}^\infty$. Let 
+	\begin{equation*}
+	F_k = A_k \backslash \left[\bigcup_{j=1}^{k-1} A_j \right]. \text{ So,}
+	\end{equation*}
+ \begin{equation*}
+F_1 = A_1, \quad 
+F_2 = A_2 \backslash A_1,\quad
+F_3 = A_3 \backslash (A_1 \cup A_2) = A_3 \cap A_1^c \cap A_2^c,\quad
+\cdots \ ,\quad
+F_k = A_k \bigcap \left[\bigcup_{j=1}^{k-1} A_j \right]^c.
+\end{equation*}
+Thus all $F_k$ are disjoint and $\bigcup_{k=1}^\infty A_k = \bigcup_{k=1}^\infty F_k $.
+\end{pf}
+
+
+
+\end{enumerate}
+
+
+
+

@@ -1,0 +1,304 @@
+\documentclass[11pt]{amsart} 
+\usepackage{amsmath} %Never write a paper without using amsmath for its many new commands 
+\usepackage{amssymb} %Some extra symbols 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[margin=1in]{geometry}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{Tabbing}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul,color}
+\usepackage{graphicx,float,wrapfig}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{relsize}
+\usepackage{glossaries}
+\usepackage[utf8x]{inputenc}
+\usepackage{selinput}
+\SelectInputMappings{%
+  adieresis={ä},
+  eacute={é},
+  Lcaron={Ľ},
+}
+
+\graphicspath{ {/desktop/book} }
+
+
+ \makeatletter
+          \def\@setcopyright{}
+          \def\serieslogo@{}
+          \makeatother
+          \pagestyle{plain}
+
+
+\cfoot{\thepage}
+
+\advance\footskip0.5cm
+\textheight=54pc    %a4paper
+%\textheight=50.5pc %letterpaper
+\advance\textheight-0.4cm
+\calclayout
+
+\setlength{\topmargin}{0in}
+\setlength{\oddsidemargin}{0in}
+
+\setlength{\evensidemargin}{0in}
+
+\setlength{\headheight}{0in}
+
+\setlength{\headsep}{0in}
+
+
+\setlength{\textheight}{9in}
+
+\setlength{\textwidth}{6.5in}
+
+\setlength{\parindent}{0cm}
+
+\setlength{\parskip}{0cm}
+
+
+\linespread{1.9}
+
+\setlength{\parindent}{0cm} \setlength{\parskip}{0cm}
+\author{K. Gray} 
+\title{Real Analysis Notebook} 
+
+\raggedbottom
+
+\begin{document} 
+
+
+
+ \newcommand{\Q}{{\mathbb Q}}
+          \newcommand{\R}{{\mathbb R}}
+          \newcommand{\sR}{{\mathcal R}}
+          \newcommand{\nil}{\varnothing}
+          \newcommand{\N}{{\mathbb N}}
+          \newcommand{\A}{{\mathcal A}}
+           \newcommand{\E}{{\mathcal E}}
+           \newcommand{\M}{{\mathcal M}}
+           \newcommand{\Ps}{{\mathcal P}}
+           \newcommand{\F}{{\mathcal F}}
+           \newcommand{\sa}{{\sigma}\text{-algebra}}
+            \newcommand{\B}{{\mathcal B}}
+ \newcommand{\SO}{{\mathcal O}}
+ \newcommand{\sN}{{\mathcal N}}
+ \newcommand{\sL}{{\mathcal L}}
+ \newcommand{\C}{{\mathcal C}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\sP}{{\mathcal P}}
+\newcommand{\U}{{\mathcal U}}
+
+
+
+\makeatletter
+\def\thm@space@setup{\thm@preskip=0pt
+\thm@postskip=0pt}
+\makeatother
+\newtheoremstyle{newstyle}      
+{} %Aboveskip 
+{} %Below skip
+{\mdseries} %Body font e.g.\mdseries,\bfseries,\scshape,\itshape
+{} %Indent
+{\bfseries} %Head font e.g.\bfseries,\scshape,\itshape
+{.} %Punctuation afer theorem header
+{ } %Space after theorem header
+{} %Heading
+
+\theoremstyle{newstyle}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{dfn}{Definition}
+\newtheorem*{construction}{Construction}
+\newtheorem*{example}{Example}
+\newtheorem*{conjecture}{Conjecture}
+\newtheorem{rmk}{Remark}
+
+\makeatletter
+\newenvironment{pf}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep0\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\itshape
+  #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+\maketitle
+\thispagestyle{empty}
+\pagenumbering{gobble}
+\tableofcontents
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\clearpage
+
+
+\section{Section 1.2 (Folland): $\sigma$-algebras}
+\subsection{Section 1.2: Definitions and Theorems}
+\input{sect12notes.tex}
+\input{aug26} 
+ \input{aug28}
+  \input{aug31}
+\input{sep2}
+\subsection{September 4 Group Assignment}
+\input{sep4}
+\subsection{September 9 Group Assignment}
+\input{sep9}
+
+
+ \section{Section 1.3 (Folland): Measures}
+ \subsection{Section 1.3 Definitions and Theorems}
+ \input{sect13}
+\subsection{September 11 Group Assignment}
+\input{sept11}
+\subsection{September 14 Group Assignment}
+\input{sept14}
+\subsection{September 16 Group Assignment}
+\input{sept16}
+
+ \section{Section 1.4 (Folland): Outer Measures}
+ \subsection{Section 1.4 Definitions and Theorems}
+ \input{sect14} \clearpage
+\subsection{September 18 Group Assignment}
+\input{sept18}
+
+\clearpage
+\input{sept21}
+
+ \subsection{September 28 Group Assignment}
+\input{sept28}
+
+ \subsection{September 30 Group Assignment}
+\input{sept30}
+
+ \subsection{October 2 Group Assignment}
+\input{oct2}
+ \section{Section 1.3 (Folland): Complete proof of Theorem 1.9}
+
+ \subsection{October 5 Group Assignment}
+\input{oct5}
+ \section{Section 1.5 (Folland): Borel Measures on the Real Line}
+ \subsection{Section 1.5 Definitions and Theorems}
+ \input{sect15} 
+ 
+ \subsection{October 9 Group Assignment}
+\input{oct9}
+
+\subsection{October 12 Group Assignment}
+\input{oct12}
+\section{Section 2.1 (Folland): Measurable Functions}
+\subsection{Section 2.1 Definitions and Theorems}
+ \input{sect21} 
+ 
+\subsection{October 14 Group Assignment}
+\input{oct14}
+\subsection{October 16 Group Assignment}
+\input{oct16}
+\section{Section 2.2 (Folland): Integration of Non-Negative Functions}
+\subsection{Section 2.2 Definitions and Theorems}
+ \input{sect22}
+  
+\subsection{October 19 Group Assignment}
+\input{oct19}
+
+\subsection{October 21 Group Assignment}
+\input{oct21}
+
+\subsection{October 23 Group Assignment}
+\input{oct23}
+\section{Section 2.3 (Folland): Integration of Complex Functions}
+\subsection{Section 2.3 Definitions and Theorems}
+ \input{sect23}  
+\subsection{October 26 Group Assignment}
+\input{oct26}
+
+\subsection{October 28 Group Assignment}
+\input{oct28}
+
+\subsection{November 2 Group Assignment}
+\input{nov2} 
+\section{Section 2.5 (Folland): Product Measures}
+
+\subsection{Section 2.5 Definitions and Theorems}
+\input{sect25} 
+\clearpage
+\subsection{November 4 Group Assignment}
+\input{nov4}
+\clearpage
+\subsection{November 6 Group Assignment}
+\input{nov6} 
+\section{Section 2.4 (Folland): Modes of Convergence}
+
+\subsection{Section 2.4 Definitions and Theorems}
+\input{sect24.tex} 
+\subsection{November 9 Group Assignment}
+\input{nov9} 
+
+\subsection{November 13 Group Assignment}
+\input{nov13}
+ \section{Section 3.1 (Folland): Signed Measures}
+ \clearpage
+ \subsection{Section 3.1 Definitions and Theorems}
+\input{sect31} 
+ \subsection{November 16 Group Assignment}
+\input{nov16} 
+
+ \subsection{November 18 Group Assignment}
+\input{nov18}   
+\section{Section 3.2 (Folland): The Lebesgue-Radon-Nikodym-Theorem}
+
+\subsection{Section 3.2 Definitions and Theorems}
+\input{sect32}  
+
+ \subsection{November 20 Group Assignment}
+\input{nov20}
+ 
+  \subsection{November 23 Group Assignment}
+\input{nov23} 
+
+  \subsection{November 25 Group Assignment}
+\input{nov25}  
+
+\section{Section 3.4 (Folland): Differentiation on Euclidean Space}
+
+\subsection{Section 3.4 Definitions and Theorems}
+\input{sect34}  
+
+ 
+  \subsection{December 2, 4}
+\input{dec2}  
+
+\clearpage
+ \section{Homework}
+  \subsection{Assignment 1 (page 1)}
+\input{hwp1}
+
+  \subsection{Assignment 2 (page 2)}
+\input{hwp2} 
+
+  \subsection{Assignment 3 (page 3)}
+\input{hwp4} 
+
+  \subsection{Assignment 4 (page 4)}
+\input{hwp3}  
+
+  
+
+\end{document} 

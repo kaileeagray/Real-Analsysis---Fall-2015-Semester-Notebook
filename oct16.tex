@@ -1,0 +1,11 @@
+\begin{enumerate}
+\item (exercise 3, $\S 2.1$): If $\{f_n\}$ is a sequence of measurable functions then the set $\{x : \lim_{n \rightarrow \infty} f_n(x) $ exists$\}$ is measurable.
+ \begin{pf}
+Assume $\{f_n\}$ is a sequence of measurable functions. Consider $\{x : \lim_{n \rightarrow \infty} f_n(x) $ exists$\}$. If $\lim_{n \rightarrow \infty} f_n(x) $ exists, $\limsup f_n(x)=\lim f_n(x)$. Thus, \[
+\{x : \lim_{n \rightarrow \infty} f_n(x) \text{ exists}\}= \{x : \limsup f_n(x)=\lim f_n(x)\}.
+\]
+By, proposition 2.7, $g_3(x)=\limsup f_n(x)$ and $g_4(x)=\lim f_n(x)$ are measurable functions. Define $g= g_3 - g_4$. Then, $g$ is a measurable function. If $g(x)=0$, then $x \in \{x : \lim_{n \rightarrow \infty} f_n(x) $ exists$\}$. Since $g$ is measurable, $g^{-1}(\{0\})=\{x : \lim_{n \rightarrow \infty} f_n(x) $ exists$\}$ is measurable. 
+ \end{pf}
+\item (exercise 6, $\S 2.1$): Show by example that there is an uncountable set $A$ and for each $a \in A$ a measurable function $f_a$, but $\sup \{f_\alpha : \alpha \in A\}$ is not measurable.  \\	
+Consider the set $N_r$ constructed in section 1.1.  Then $N_r$ is an uncountable set and therefore not measurable. However, for every $r \in \Q\cap[0,1)$ and $x \in N$ (where $N$ was defined as the subset of $[0,1)$ containing exactly one member of the equivalence classes defined by $x \sim y$ iff $x-y \in \Q$. Singletons are measurable, so, from page 46 of Folland, the indicator functions $\chi_{\{x+r\}}$ and $\chi_{\{x_r-1\}}$ are measurable for all $r \in \Q\cap [0,1)$ and $x \in N\cap [0,1-r)$ or $x \in N\cap [1-r,1)$. Notice $\sup\{ \chi_{\{x+r\}}, \chi_{\{x+r-1\}}: r \in \Q\cap [0,1)$ and $x \in N\cap [0,1-r)$ or $x \in N\cap [1-r,1) \}=\chi_{N_r}$ But, $ \chi_{N_r}$ is not measurable because $N_r$ is not measurable. 
+\end{enumerate}

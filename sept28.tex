@@ -1,0 +1,73 @@
+\begin{enumerate}
+\item Let $X$ be a set and $A$ a proper subset of $X$. Let $\E =\{ \o, A \}$ and define $\mu : \E \rightarrow [0, \infty]$ by $\mu(\o)=0$ and $\mu(A)=1$. (a) For any subset $E$ of $X$ prove that 
+\[
+\mu^*(E)= \left\{
+\begin{array}{ll} 
+      0 & E=\o \\
+      1 & \o \neq E \subseteq A \\  
+      \infty & \text{ otherwise}
+\end{array} 
+ \right. 
+\]
+\begin{pf}
+First, suppose $E = \o$. Then, 
+\[
+\mu^*(E)=\mu^*(\o)=\inf \left\{ \sum_{j=1}^\infty \mu(E_j) : E_j \in \E \text{ and } \o \subset \bigcup_{j=1}^\infty E_j \right\}.
+\]
+We can take $E_j = \o$ for all $j$ so that 
+\[
+\mu^*(\o)=\inf \left\{ \sum_{j=1}^\infty \mu(\o) : \o \in \E \text{ and } \o \subset \bigcup_{j=1}^\infty \o \right\} = \inf \left\{ \sum_{j=1}^\infty 0 : \o \in \E \text{ and } \o \subset \bigcup_{j=1}^\infty \o \right\} = 0.
+\]
+Next, suppose $\o \neq E \subseteq A$. Then, 
+\[
+\mu^*(E)=\inf \left\{ \sum_{j=1}^\infty \mu(E_j) : E_j \in \E \text{ and } E \subset \bigcup_{j=1}^\infty E_j \right\}.
+\]
+Since $\E$ contains only $\o, A$ and $E \not\subset \o$, we must let $E_j = A$ for all $j$
+\[
+\mu^*(E)=\inf \left\{ \sum_{j=1}^\infty \mu(A) : A \in \E \text{ and } E \subset \bigcup_{j=1}^\infty A \right\}=\mu(A)=1.
+\]
+Finally, suppose $E \not \subset A$. Then $E \not\subset \o$ and $E \not\subset A$ so $\{ E_j \in \E \text{ and } E \subset \bigcup_{j=1}^\infty E_j \} = \o$. Thus, $\mu^*(E)= \inf \o = \infty$. 
+\end{pf}
+(b) Prove that the $\sa$ of $\mu^*$-measurable sets is $\{ \o, A, A^c, X \}$.\begin{pf}
+First, we will show $\{ \o, A, A^c, X \}$ are $\mu^*$-measurable sets. Let $M$ be the $\sa$ of $\mu^*$-measurable sets.\\
+\textbf{(Claim: $\O$ is $\mu^*$-measurable.)} Consider any set $E \subset X$. Notice $\mu^*(E\cap \O) + \mu^*(E \cap \O^c) = \mu^*(\O) + \mu^*(E \cap X) = 0 + \mu^*(E)$. Thus, $\mu^*(E)=\mu^*(E\cap \O) + \mu^*(E \cap \O^c)$ so $\O$ is $\mu^*$-measurable. Since the set of $\mu^*$-measurable sets is a $\sa$, $\O^c \in M$, so $X \in M$. \\
+\textbf{(Claim: $A$ is $\mu^*$-measurable.)} Consider any set $E \subset X$. Then, either $E \subseteq A$ or $E \supset A$.  Suppose $E \subseteq A$. Then, $\mu^*(E) = 1$. Since $E \subseteq A$, $E \cap A = E$ and $E \cap A^c=\O$ so  $\mu^*(E \cap A)=\mu^{*}(E)$ and $\mu^*(E \cap A^c) = \mu^*(\O)=0$. Thus, when $E \subseteq A$, $\mu^*(E)=\mu^*(E\cap A) + \mu^*(E \cap A^c)$.\\
+Next, suppose $E \supset A$. Then, $\mu^*(E) = \infty$. Since $E \supset A$, $E \cap A = A$, $\mu^*(E \cap A)=\mu^{*}(A)=1$. Also, and $E \cap A^c\not\subseteq A$ so $\mu^*(E \cap A^c) = \infty$. Thus, when $E \supset A$, $\mu^*(E)=\mu^*(E\cap A) + \mu^*(E \cap A^c)$.
+Since the set of $\mu^*$-measurable sets is a $\sa$, if $A \in M$, $A^c \in M$. 
+Now, suppose there exists $N \subset X$ such that $N \not\in \{ \o, A, A^c, X \}$ but $N$ is $\mu^{*}$-measurable. Since $N \neq \O$, $\mu^*(N)\neq 0$, so either $\mu^*(N)= 1$ or $\mu^*(N)=\infty$.\\ 
+Consider $\mu^*(N)=1$. Then, $N \subset A$. Since $N$ is $\mu^*$-measurable, for any set $E$ in $X$, $\mu^*(E)=\mu^*(E\cap N) + \mu^*(E \cap N^c)$. This equality must hold if $E \subseteq A$ where $E \cap N \neq \O$ and $E \neq N$. So, if $E \subseteq A$, $\mu^*(E)=1$. Since $E \cap N \subseteq E \subseteq A$ and $E \cap N \neq \O$, $\mu^*(E \cap N) = 1$. Similarly, $E \cap N^c \subseteq E \subseteq A$ and $E \cap N^c \neq \O$, $\mu^* (E \cap N^c) =1$. But, if $\mu^*(E)=\mu^*(E\cap N) + \mu^*(E \cap N^c)$, we have $1 = 1 + 1$ which is false. Thus, $\mu^*(N)\neq 1$. \\
+Next, suppose $\mu^*(N)=\infty$. Thus, $N \not \subseteq A$. Suppose, however, that $N \cap A \neq \O$. Since $N$ is $\mu^*$-measurable, for any set $E$ in $X$, $\mu^*(E)=\mu^*(E\cap N) + \mu^*(E \cap N^c)$. This equality must hold if $E \subset A$ where $E \cap N = A \cap N$, $E \neq N$ and $E \cap N \neq \O$. Thus, $E \subset A$ implies $\mu^*(E)=1$; $\O \neq E \cap N \subset E \subset A$ implies $\mu^*(E \cap N)=1$; and $\O \neq E \cap N^c \subset E \subset A $ implies $\mu^*(E \cap N^c)=1$. Thus, if $\mu^*(E)=\mu^*(E\cap N) + \mu^*(E \cap N^c)$, $1 = 1 + 1$ which is false. Therefore, $\mu^*(N)\neq \infty$. \\
+Thus, $\sa$ of $\mu^*$-measurable sets is $\{ \o, A, A^c, X \}$.
+\end{pf}
+(c) For any $\infty \geq a > 0$ , define 
+\[
+\begin{array}{ll}
+\sigma(\O)= & 0 \\
+\sigma(A)= & 1 	\\
+\sigma(A^c)= & a \\
+\sigma(X)= & 1 + a.
+\end{array}
+\]
+Prove $\sigma$ is a measure extending $\mu$. 
+\begin{pf}
+First, we will show $\sigma$ is a measure. Notice $\sigma(\O)=0$. So we need only check that $\sigma$ is countably additive under disjoint unions. Notice $\sigma$ is countably additive under disjoint unions:
+\[
+\begin{array}{llll}
+\sigma(\O \cup A)= & \sigma(A)= & 1 = & \sigma(\O) + \sigma(A) \\
+\sigma(\O \cup A^c)= & \sigma(A^c)= & a = & \sigma(\O) + \sigma(A^c) \\
+\sigma(\O \cup X)= & \sigma(X)= & 1 + a = & \sigma(\O) + \sigma(S) \\
+\sigma(A \cup A^c)= & \sigma(X)= & 1+c = & \sigma(A) + \sigma(A^c) .
+\end{array}
+\]
+Thus, $\sigma$ is a measure. To show $\sigma$ is a measure extending $\mu$, we need only prove $\sigma=\mu$ when $\mu$ is defined. $\mu$ is defined only on $A, \O$. So, we have:
+ \[
+\begin{array}{lll}
+\sigma(\O)= & 0 = & \mu(\O) \\
+\sigma(A)= & 1 = & \mu(A) .
+\end{array}
+\]
+Thus, $\sigma$ is a measure extending $\mu$. 
+\end{pf}
+
+
+\end{enumerate}

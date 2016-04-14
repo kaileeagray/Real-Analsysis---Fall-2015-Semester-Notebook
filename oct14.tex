@@ -1,0 +1,25 @@
+\begin{enumerate}
+\item (exercise 8, $\S 2.1$): Prove that if $f : \R \rightarrow \R$ is monotone then it is measurable.
+\begin{pf}
+	Let $f: \R \rightarrow \R$ be monotone.  By Proposition
+2.3 in Page 44, it suffices to show that for any $a \in \R$, we have $f^{−1}((a, \infty))$ is Borel measurable. WLOG, assume $f$ is increasing. Let $x^{'}=\inf \{x : f(x) >a  \}$\\
+	\textbf{Case 1:	Suppose $f(x^{'}) \leq a$.}
+ We will show $f^{-1}((a, \infty))=(x^{'}, \infty)$. First, show $f^{-1}((a, \infty))\subseteq (x^{'}, \infty)$. Let $x \in f^{-1}((a, \infty))$. Then, $f(x)>a$. Since $x^{'}=\inf \{x : f(x) >a  \}$, $x^{'}<x$. Thus, $x \in (x^{'}, \infty)$. \\
+	Next, show $f^{-1}((a, \infty))\supseteq (x^{'}, \infty)$. Let $x \in (x^{'}, \infty)$. Then, $x>x^{'}$.  Since $x^{'}=\inf \{x : f(x) >a  \}$ and $x>x^{'}$, there exists some $x_0 \in \R$ such that $x>x_0>x^{'}$ and $f(x_0)>a$. $f$ is monotone, so $f(x)>f(x_0)$. Thus, $f(x)>a$ which implies $x \in f^{-1}((a, \infty))$.  \\
+\textbf{Case 2: Suppose $f(x^{'}) > a$}. We will show $f^{-1}((a, \infty))=(x^{'}, \infty)$. First, show $f^{-1}((a, \infty))\subseteq (x^{'}, \infty)$. Let $x \in f^{-1}((a, \infty))$. Then, $f(x)>a$. Since $x^{'}=\inf \{x : f(x) >a  \}$, $x^{'}<x$. Thus, $x \in (x^{'}, \infty)$. \\
+	Next, show $f^{-1}((a, \infty))\supseteq (x^{'}, \infty)$. Let $x \in (x^{'}, \infty)$. Then, $x>x^{'}$.  Since $f$ is monotone, so $f(x)>f(x^{'})> a$. Thus, $f(x)>a$ which implies $x \in f^{-1}((a, \infty))$.  \\
+	\textbf{Case 3: Suppose $f(x^{'}) =\infty$}. We will show $f^{-1}((a, \infty))=\O$. If $f(x^{'}) =\infty$, $f(\inf\{x : f(x)>a\}) =\infty$ which implies $\inf\{x : f(x)>a\} =\infty$ so $\{x : f(x)>a\}=\O$. Thus, $f^{-1}((a, \infty))=\O$.\\
+	\textbf{Case 4: Suppose $f(x^{'})=-\infty$}. We will show $f^{-1}((a, \infty))=\R$. If $f(x^{'}) =-\infty$, $f(\inf\{x : f(x)>a\}) =-\infty$ which implies $\inf\{x : f(x)>a\} =-\infty$ so $\{x : f(x)>a\}=\R$. Thus, $f^{-1}((a, \infty))=\R$.\\
+	Hence, for any $a \in \R$, we have $f^{−1}((a, \infty))$ is Borel measurable, so $f$ is measurable. 
+\end{pf}
+\item (exercise 5, $\S 2.1$):	If $X=A \cup B$ with $A, B \in \M$, then a function $f$ on $X$ is measurable if and only if $f$ is measurable on $A$ and $B$. 
+\begin{pf}
+Let $f: (X, \M) \rightarrow (Y, \sN)$.
+	First, assume $f$ is measurable on $X=A \cup B\in \M$. Then, for all $N \in \sN$, $f^{-1}(N) \in \M$. Since $A, B \in \M$, $f^{-1}(N) \cap A \in \M$ and $f^{-1}(N) \cap B \in \M$ for all $N \in \sN$. Thus, $f$ is measurable on $A$ and $f$ is measurable on $B$.\\
+	Next, assume $f$ is measurable on $A$ and $f$ is measurable on $B$. Then, for all $N \in \sN$, $f^{-1}(N)\cap A \in \M$ and  $f^{-1}(N)\cap B \in \M$. This implies $(f^{-1}(N)\cap A) \cup (f^{-1}(N)\cap B) \in \M$. Since $(f^{-1}(N)\cap A) \cup (f^{-1}(N)\cap B)=f^{-1}(N) \cap (A \cup B)$, $f$ is measurable on $A \cup B$. 
+
+\end{pf}
+\url{http://www.math.brown.edu/~rkenyon/teaching/2009/2210/Set3.pdf} 
+
+
+\end{enumerate}

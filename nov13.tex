@@ -1,0 +1,17 @@
+Let $(X \M, \mu)$ be a measure space:
+\begin{enumerate}
+\item 	If $\mu$ is $\sigma$-finite and $f_n \rightarrow f$ a.e. then there exists measurable sets $E_1, E_2, \dots, \subseteq X$ such that $\mu((\cup E_i)^c)=0$ and $f_n \rightarrow f$ on each $E_j$.
+\begin{pf}
+Assume $\mu$ is $\sigma$-finite and $f_n \rightarrow f$ a.e. Then, $ X = \bigcup_{1}^\infty A_j $ where $\mu(A_j) < \infty$. Let $B_n = \cup_{j=1}^n A_j$. Since $\mu(A_j)< \infty$ for all $j$, $\mu(B_n) < \infty$ for any $n$. Also note that $\{B_n\}_{n=1}^\infty$ are nested sets. For every $n$, choose $E_n \subset B_n$ such that $\mu(E_n^c)< \frac{1}{n}$; note $f \rightarrow f$ a.e. on $B_n$ and thus $f \rightarrow f$ a.e. on $E_n$. Thus, by Ergoroff's theorem, $f_n \rightarrow f$ uniformly on $E_n$. Also
+\[
+\mu\left(\left(\bigcup E_j\right)^c\right)= \mu\left(\bigcap E_j^c\right) \leq \mu(E_n^c)< \frac{1}{n}\] 
+\end{pf}
+
+\item Let $\mu$ be counting measure on $\N$. Prove that $f_n$ converges uniformly to $f$ if and only if $f_n$ converges to $f$ in measure.
+\begin{pf}
+Assume $f_n$ converges to $f$ in measure. Then, for any $\varepsilon>0$ define $E_{\varepsilon, n}=\left\{ x: |f_n(x)-f(x)|\geq \varepsilon \right\}$. Since $f_n$ converges to $f$ in measure, $\mu(E_{\varepsilon, n})\rightarrow 0$ as $n \rightarrow \infty$. Thus, $\mu(E_{\varepsilon, n})=0$ for all but finitely many $n$. Equivalently, $E_{\varepsilon, n}= \O$ for all but finitely many $n$. Thus, there exists some $N$ such that $\left\{ x: |f_n(x)-f(x)|\geq \varepsilon \right\}=\O$ for all $n>N$. Therefore $f_n$ converges uniformly to $f$.
+ \\
+ Assume $f_n$ converges uniformly to $f$. Then, for any $\varepsilon> 0$, there exists some $N$ such that for all $n \geq N$, $|f_n - f|< \varepsilon$. Equivalently, $\{ x: |f_n(x)-f(x)|\geq \varepsilon \}=\O$ for all $n>N$ Thus, $\mu(\left\{ x: |f_n(x)-f(x)|\geq \varepsilon \right\})=0$ and given $\delta>0$ we can write $\mu(\{ x: |f_n(x)-f(x)|\geq \varepsilon\})< \delta$. And so $f_n$ converges to $f$ in measure.
+\end{pf}
+
+\end{enumerate}

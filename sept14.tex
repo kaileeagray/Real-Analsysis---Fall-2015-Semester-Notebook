@@ -1,0 +1,69 @@
+These solutions are from \url{https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&ved=0CDIQFjADahUKEwiVu-_PtM_IAhVBFz4KHamFDmM&url=http%3A%2F%2Fwww.math.psu.edu%2Fballif%2Fassignments%2FMath%2520501%2520Analysis%2FMATH501_HW2.tex&usg=AFQjCNHXa01zt_Ejvp67o5jcfLLtqmuV8w&bvm=bv.105454873,d.cWw&cad=rja} and
+\url{http://www.math.tamu.edu/~thomas.schlumprecht/hw3_math607_13c_sol.pdf}
+\begin{enumerate}
+\item If $(X, \M, \mu)$ is a measure space and $\{ E_j \}_{j=1}^\infty\subset \M$, then $\mu (\liminf E_j) \leq \liminf \mu (E_j)$.
+\begin{pf}
+Recall that
+  $\underset{j\to\infty}{\liminf} x_j=\underset{j\to\infty}{\lim}\left(\underset{k\ge j}{\inf} x_k\right)$.
+ First, notice for all $n \in \N$, $\underset{j\geq n}{\bigcap}E_j \subseteq E_j$ so by monotonicity of $\mu$, $\mu\left(\underset{j\geq n}{\bigcap}E_j\right) \leq \mu(E_j)$ for all $j\geq n$. Therefore, $\mu\left(\underset{j\geq n}{\bigcap}E_j\right) \leq \underset{j\geq n}{\inf}\mu(E_j)$. Thus,
+  \[
+  \mu\left( \underset{j\rightarrow \infty}{\liminf}E_j\right)=\mu\left( \bigcup_{n=1}^\infty \bigcap_{j\geq n}E_j\right)= \underset{j\to\infty}{\lim}\mu\left(\bigcap_{j\geq n} E_j\right)\leq \lim_{n\rightarrow \infty}\inf_{j\geq n}\mu(E_j)= \underset{j\to\infty}{\liminf}\mu(E_j).\]
+  \end{pf}
+
+\item If $(X,\M, \mu)$ is a measure space and $\{ E_j \}_{j=1}^\infty\subset \M$ with $\mu(E_j) < \infty$, then\\ $\mu(\limsup E_j) \geq \limsup \mu(E_j)$
+	\begin{pf}
+ Recall that $\underset{j\to\infty}{\limsup} x_j=\underset{j\to\infty}{\lim}\left(\underset{k\ge j}{\sup} x_k\right)$. We will show
+    $\mu\left(\bigcap_{j=1}^\infty\bigcup_{k=j}^\infty E_k\right)=\underset{j\to\infty}{\lim}\mu\left(\bigcup_{k=j}^\infty E_k\right)$.
+  \begin{pf}
+    Let $G_j=\bigcup_{k=j}^\infty E_k$. We have a decreasing chain of subsets $G_j\supset G_{j+1}$ for all $j$. Also, we know that $\mu(G_j)<\infty$. Hence, by continuity from above we know that $\mu(\bigcap_{j=1}^\infty G_j)=\underset{j\to\infty}{\lim} \mu(G_j)$.
+  \end{pf}
+For each $k$ we know by monotonicity that $\mu(E_k)\le\mu(\bigcup_{k=j}^\infty E_k)$. Hence, $\underset{k>j}{\sup}\mu(E_k)\le\mu(\bigcup_{k=j}^\infty E_k)$. Now we take the limit as $j\to\infty$ to get
+  \[\underset{j\to\infty}{\lim}\mu\left(\bigcup_{k=j}^\infty E_k\right)=\mu\left(\bigcap_{j=1}^\infty\bigcup_{k=j}^\infty E_k\right)\le\underset{j\to\infty}{\lim}\left(\underset{k\ge j}{\sup} \mu(E_k)\right).\]
+	
+\end{pf}
+
+\item A finitely additive measure $\mu$ on $(X, \M)$ is a measure if and only if it is continuous from below.
+\begin{pf}
+$(\Rightarrow)$ Theorem 1.8(c) implies a measure is continuous from below. 
+\\
+$(\Leftarrow)$ Suppose $\mu$ is finitely additive and continuous from below. Consider $\{A_n\}_{n=1}^\infty\subset \M$ with $A_j\cap A_i=\O$ for all $j\neq i$ and $A_j \subset A_{i}$ for all $j\leq i$. Then,
+\[
+\begin{array}{lll}
+\mu\left( \bigcup_{n=1}^\infty A_n \right)& = \lim_{N\rightarrow \infty}\mu\left( \bigcup_{n=1}^N A_n \right)& \text{ since $\mu$ is continous from below}\\
+ &=	\lim_{N\rightarrow \infty} \sum_{n=1}^N\mu\left(A_n \right)& \text{ $\mu$ is finitely additive}\\
+ & = \sum_{n=1}^\infty \mu(A_n)& \\
+\end{array}
+\]  
+Thus $\mu$ is countably additive so $\mu$ is a measure. 	
+\end{pf}
+
+\item A finitely additive measure $\mu$ on $(X, \M)$ with $\mu(X)<\infty$ is a measure if and only if it is continuous from above.
+\begin{pf}
+$(\Rightarrow)$ Theorem 1.8(d) implies a measure is continuous from above. 
+\\
+$(\Leftarrow)$ Suppose $\mu$ is finitely additive and continuous from above. If we show $\mu$ is continuous from below, (3) will imply $\mu$ is a measure. Let $\{A_j\}_{j=1}^\infty \subset \M$ such that $A_j\cap A_i=\O$ for all $j\neq i$ and $A_j \subset A_{i}$ for all $j\leq i$. Note 
+\[
+\bigcap_{j=1}^\infty X\backslash A_j=\bigcap_{j=1}^\infty X\cap A_j^c= X \cap \bigcap_{j=1}^\infty A_j^c= X \cap \left(\bigcup_{j=1}^\infty A_j\right)^c=X \backslash \bigcup_{j=1}^\infty A_j\]
+\begin{equation}
+\text{Thus, }	\bigcap_{j=1}^\infty X\backslash A_j=X \backslash \bigcup_{j=1}^\infty A_j. \text{ Also, since } A_j \subset A_{i} \text{ for all } j\leq i,\ X\backslash A_j \supset X \backslash A_i \text{ for all }j \leq i.  
+\end{equation}
+\[
+\begin{array}{lll}
+	\mu\left(\bigcap_{j=1}^\infty X\backslash A_j \right) & =\underset{j\rightarrow \infty}{\lim}\mu(X\backslash A_j) & \text{ since $\mu$ is continuous from below}\\
+	 & = \underset{j \rightarrow \infty}{\lim}(\mu(X)-\mu(A_j)) & \mu \text{ is finitely additive}\\
+	 & = \mu(X)-\underset{j \rightarrow \infty}{\lim}\mu(A_j) & \\
+\end{array}
+\]
+From (1) we have 
+\[
+\mu(X)-\underset{j \rightarrow \infty}{\lim}\mu(A_j)=\mu\left( X \backslash \bigcup_{j=1}^\infty A_j\right)= \mu(X) - \mu\left(\bigcup_{j=1}^\infty A_j\right).
+\]
+Because $\mu(X)<\infty$, we can subtract $\mu(X)$ from both sides of the previous equation to obtain
+\[
+\underset{j \rightarrow \infty}{\lim}\mu(A_j)=\mu\left(\bigcup_{j=1}^\infty A_j\right).
+\]
+Therefore, $\mu$ is continuous from above which by (3) implies $\mu$ is a measure. 
+	
+\end{pf}
+
+\end{enumerate}

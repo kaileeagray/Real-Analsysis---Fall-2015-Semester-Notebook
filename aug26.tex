@@ -1,0 +1,55 @@
+
+\subsection{August 26 Group Assignment}
+Note: solutions for the August 26th assignment were provided by Professor Duncan and expanded upon by author.\\
+Let $ \{ A_k \}_{k=1}^{\infty}$ be a sequence of sets. We define \[ \limsup_{k \rightarrow \infty} A_k = \bigcap_{j=1}^{\infty} \left( \bigcup_{k=j}^{\infty} A_k \right) \qquad  \text{ and } \qquad  \liminf_{k \rightarrow \infty} A_k = \bigcup_{j=1}^{\infty} \left( \bigcap_{k=j}^{\infty} A_k \right). \]
+
+\begin{enumerate}
+
+
+\item Prove that $\limsup_{k \rightarrow \infty} A_k = \{ x : x \in A_k \mbox{ for infinitely many } k \}.$
+\begin{pf}
+	Let $E= \{ x:x \in A_k\ \text{for infinitely many} \ k \}$.  To show $\limsup \limits_{k \rightarrow \infty} A_k =E$, we will show $\limsup \limits_{k \rightarrow \infty} A_k \subseteq E$ and $\limsup \limits_{k \rightarrow \infty} A_k \supseteq E$.
+	 First, let's show $\limsup \limits_{k\rightarrow \infty} A_k \subseteq E$. Let $x \in \limsup \limits_{k\rightarrow \infty} A_k$. Suppose for the purposes of contradiction that $x \notin E$. If $x \notin E$, then it is not the case that $x$ is in infinitely many sets $A_k$. If $x$ is not in infinitely many sets $A_k$, then there must exist some $j_0$ such that for all $k\geq j_0$, $x \notin A_k$. Then, $x \notin \bigcup_{k=j_0}^\infty A_k$.  Thus, $x \notin \limsup \limits_{k\rightarrow \infty} A_k$ which contradicts our assumption that $x \in \limsup \limits_{k\rightarrow \infty} A_k$. Hence, if $x \in \limsup \limits_{k\rightarrow \infty} A_k$, $x \in E$.\\
+\end{pf}
+
+\noindent Prove that $\liminf_{k \rightarrow \infty} A_k = \{ x: \mbox{ there is a } j \mbox{ such that } x \in A_l \mbox{ for all } l \geq j \}.$
+
+\begin{pf}
+If there is some $j$ such that $ x \in A_l$ for any $ l \geq j$ then $x \in \cap_{j=k}^{\infty} A_k$ and hence $ x \in \liminf A_k$.  If on the other hand if for any $j$ there is $k_0 > j$ such that $ x \not\in  A_{k_0}$ then $ x \not\in \cap_{k=j}^{\infty} A_k$ for any $j$ and hence $ x \not\in \liminf A_k$.\\
+\end{pf}
+
+\item Prove that $ \liminf A_k \subseteq \limsup A_k $.
+
+\begin{pf}
+If $ x \in \liminf A_k$ then there is some $j$ such that $x \in A_l$ for any $ l \geq j$ then $x$ is in infinitely many of the $A_j$ and hence $x \in \limsup A_k$. 
+\end{pf}
+
+\item Prove that $\limsup A_k = \liminf A_k = \cap A_k$ if $ A_1 \supseteq A_2 \supseteq A_3 \supseteq \cdots$.
+
+\begin{pf}
+We have that $ \cup_{j=k}^{\infty} A_k = A_j$ since the sequence is nested.  It follows that $ \limsup A_k = \cap_{j=1}^{\infty} A_j \subseteq \liminf A_k$.
+\end{pf}
+
+\item Give examples of sequences of sets that satisfy the following :
+\begin{multicols}{3}
+i. $\limsup A_k = \emptyset$.\\
+ $X = \mathbb{N}$ and $A_k = \{ k \}$.\\
+
+ii. $ \liminf A_k = \emptyset$.\\
+\noindent $X = \mathbb{R}$ and $A_k = [k, k+1]$. 
+
+iii. $ \liminf A_k \neq \emptyset$ and $ \limsup A_k \neq \liminf A_k$.
+
+Let $X = \mathbb{R}$ and let \[ A_k = \begin{cases} \{ 0,1 \} & \mbox{ if } k \mbox{ is even} \\ \{ 0 \} & \mbox{ otherwise} \end{cases}. \] 
+\\
+Then, $\limsup A_k = \{ 0,1 \}$ and $ \liminf A_k = \{ 0 \}$.
+
+\end{multicols}
+
+
+
+\end{enumerate}
+
+
+
+
