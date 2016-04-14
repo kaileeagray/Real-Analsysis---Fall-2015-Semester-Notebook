@@ -1,0 +1,82 @@
+\begin{dfn}[signed measure]
+A signed measure on $(X, \M)$ is a function $\nu: \M \rightarrow [-\infty, \infty]$ such that
+\begin{enumerate}
+	\item $\nu(\O)=0;$
+	\item $\nu$ assumes at most one of the values of $\pm \infty$
+	\item if $\{E_j\}$ is a sequence of disjoint sets in $\M$, then $\nu(\cup_1^\infty E_j) = \sum_1^\infty \nu(E_j)$. $\sum_1^\infty \nu(E_j)$ converges absolutely if $\nu(\cup_1^\infty E_j)$ is finite. 
+\end{enumerate}
+\end{dfn}
+\begin{rmk}
+Every measure is a signed measure. For emphasis, measures may be referred to as positive measures.	
+\end{rmk}
+
+\begin{example}
+If $\mu_1, \mu_2$ are measures on $\M$ and at least on of them is finite, then $\nu=\mu_1 - \mu_2$ is a signed measure.	
+\end{example}
+
+\begin{example}
+If $\mu$ is a measure on $\M$ and $f: X \rightarrow [-\infty, \infty]$ is a measurable function such that at least one of $\int f^+ d \mu$ and $\int f^- d \mu$ is finite, then $\nu(E)=\int_E f d \mu$ is a signed measure.	
+\end{example}
+
+\begin{prop}
+Let $\nu$ be a signed measure on $(X, \M)$. 
+\begin{enumerate}
+\item If $\{E_j\}$ is an increasing sequence in $\M$, then $\nu(\cup_1^\infty E_j)=\lim_{j \rightarrow \infty} \nu(E_j)$.
+\item If 	$\{E_j\}$ is an decreasing sequence in $\M$ and $\nu(E_1)$ is finite, then $\nu(\cap_1^\infty E_j)=\lim_{j \rightarrow \infty} \nu(E_j)$.
+\end{enumerate}
+\end{prop}
+
+\begin{lem}
+Any measurable subset of a positive set is positive, and the union of any countable family of positive sets is positive.	
+\end{lem}
+
+\begin{thm}[The Hahn Decomposition Theorem]
+If $\nu$ is a signed measure on $(X, \M)$, there exist a positive set $P$ and a negative set $N$ for $\nu$ such that $P \cup N= X$ and $P \cap N= \O$. \\
+If $P', N'$ is another such pair, then $P \triangle P' = N \triangle N'$ is null for $\nu$.	
+\end{thm}
+\begin{rmk}[symmetric difference]
+Recall the symmetric difference of two sets is the set of elements which are in either of the sets and not in their intersection.  $$A \triangle B = (A \cup B) \backslash (A \cap B) = (A \backslash B) \cup (B \backslash A)$$.	  
+\end{rmk}
+
+\begin{dfn}[Hahn decomposition]
+The decomposition $X = P \cup N$ of $X$ as the disjoint union of a positive set and a negative se. Not unique - $\nu$-null sets can be transferred from $P$ to $N$ or from $N$ to $P$.
+\end{dfn}
+
+\begin{dfn}[mutually singular, $\nu$ is singular wrt $\mu$, $\mu \perp \nu$]
+	There exist $E, F \in \M$ such that $E \cap F = \O $, $E \cup F = X$, $E$ is null for $\mu$ and $F$ is null for $\nu$.
+\end{dfn}
+
+\begin{rmk}
+Informally, mutual singularity means $\mu, \nu$ live on disjoint sets.
+\end{rmk}
+
+\begin{thm}[Jordan decomposition theorem]
+	If $\nu$ is a signed measure, there exist positive measures $\nu^+, \nu^-$ such that $\nu = \nu^+ - \nu^-$ and $\nu^+ \perp \nu^-$.
+\end{thm}
+
+\begin{dfn}[$\nu^+, \nu^-$]
+	$\nu^+$ is the positive variation of $\nu$ and $\nu^-$ is the negative variation of $\nu$
+\end{dfn}
+
+\begin{dfn}[total variation]
+	$|\nu| = \nu^+ + \nu^-$.
+\end{dfn}
+\begin{dfn}[integration wrt a signed measure]
+	\[
+	L^1(\nu) = L^1(\nu^+) \cap L^1( \nu^-),
+	\]
+	\[
+	\int f d \nu = \int f d \nu^+ - \int f d \nu^-, \qquad f \in L^1(\nu) 
+	\]
+\end{dfn}
+
+
+
+
+
+
+
+
+
+
+

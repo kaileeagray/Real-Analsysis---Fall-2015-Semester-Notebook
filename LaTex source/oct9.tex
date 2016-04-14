@@ -1,0 +1,108 @@
+\begin{enumerate}
+\item Let $\delta_i$ denote the Dirac measure concentrated on $i$, in other words: \\
+\[
+\delta_i(E)= \left\{
+\begin{array}{ll} 
+      1 & i \in E \\
+      0 & i \not\in E 
+\end{array} 
+ \right. 
+\]
+Find the distribution function for the measure $\sum_{i=1}^{10} i^2 \delta_i$.\\
+First notice that 
+\[
+\begin{array}{c}
+1^2 \delta_1(\{1\})=1 \\
+2^2 \delta_2(\{2\})=4 \\
+3^2 \delta_3(\{3\})=9 \\
+\vdots \\
+10^2 \delta_{10}(\{ 10 \}) = 100 \\
+\end{array}
+\]
+Also, 
+\begin{eqnarray*}
+F(1)&=&\sum_{i=1}^{10} i^2 \delta_i((0,1])=1 \\
+F(2)&=&\sum_{i=1}^{10} i^2 \delta_i((0,2])=1+4 =5 \\
+F(3)&=&\sum_{i=1}^{10} i^2 \delta_i((0,3])=1+4+9=14  \\
+ & & \vdots \\
+F(10)&=&\sum_{i=1}^{10} i^2 \delta_i((0,10]) = 1+4+9 + \cdots + 100
+\end{eqnarray*}
+Thus, 
+\[
+F(E)= \left\{
+\begin{multlined} 
+     \sum_{i=1}^{\lfloor x \rfloor}i^2 \qquad x <10 \\
+      \vspace{.005cm}\\
+ \sum_{i=1}^{10}i^2 \qquad x \geq 10
+\end{multlined} \right.
+\]
+\item Let $F$ be increasing and right continuous; let $\mu_F$ denote the associated measure. 
+\\
+\begin{center}\fbox{ Prove $\mu_F(\{a\})=F(a)-F(a-)$ }\end{center}
+\[
+\text{First, notice } \{a\} = \bigcap_{n=1}^\infty \left(a - \frac{1}{n}, a\right]. \  \text{So, } \mu_F (\{a\}) = \mu_F \left( \bigcap_{n=1}^\infty \left(a - \frac{1}{n}, a\right] \right).
+\]
+
+
+ \[
+\text{Measures are continuous from above so, } \mu_F (\{a\}) = \mu_F \left( \bigcap_{n=1}^\infty \left(a - \frac{1}{n}, a\right] \right) = \lim_{n \rightarrow \infty}\mu_F \left( \left(a - \frac{1}{n}, a\right] \right)
+\]
+\[
+= \lim_{n \rightarrow \infty} F(a) - F\left(a - \frac{1}{n}\right) = F(a) - \lim_{n \rightarrow \infty} F\left(a - \frac{1}{n} \right)= F(a)-F(a-) .\vspace{.75cm}
+\]
+\begin{center}\fbox{Prove $ \ \mu_F((a,b))=F(b-)-F(a)$} \end{center}
+\[
+\text{First, notice } (a,b) = \bigcup_{n=1}^\infty \left(a, b- \frac{1}{n}\right]. \  \text{ So, } \mu_F ((a,b)) = \mu_F \left( \bigcup_{n=1}^\infty \left(a, b- \frac{1}{n}\right] \right). \text{ Measures are continuous}
+\]
+
+
+ \[
+ \text{  from below so,  } \mu_F ((a,b)) = \mu_F \left( \bigcup_{n=1}^\infty \left(a, b- \frac{1}{n}\right] \right)=\lim_{n \rightarrow \infty} \mu_F \left(\left(a, b- \frac{1}{n}\right] \right)
+\]
+\[
+= \lim_{n \rightarrow \infty} \left( F\left(b - \frac{1}{n}\right) - F\left(a\right) \right) = \lim_{n \rightarrow \infty} \left( F\left(b - \frac{1}{n}\right) \right) - F\left(a\right) =F(b-)-F(a) .
+\]
+%%%%%%%%%%%%%%%%%%%
+\begin{center}\fbox{ Prove $  \ \mu_F([a,b))=F(b-)-F(a-)$}\end{center}
+\[
+\text{First, notice } [a,b) = \{a\} \cup (a,b)  \text{ and } \{a\} \cap (a,b)= \O . \ \mu_F \text{ is a pre-measure, so  } \mu_F ([a,b)) = \mu_F(\{a\} \cup (a,b))
+\]
+ \[
+ = \mu_F(\{ a \}) + \mu_F((a,b)). \text{ From the two previous conclusions, we have }
+\]
+\[ \mu_F(\{ a \}) + \mu_F((a,b)) =F(a)-F(a-)+F(b-)-F(a)=F(b-)-F(a-).
+\]
+\begin{center}\fbox{Prove $ \ \mu_F([a,b])=F(b)-F(a-)$}\end{center}
+\[
+\text{First, notice } [a,b] = \{b\} \cup [a,b)  \text{ and } \{b\} \cap [a,b)= \O . \ \mu_F \text{ is a pre-measure, so  } \mu_F ([a,b]) = \mu_F(\{b\} \cup [a,b))
+\]
+ \[
+ = \mu_F(\{ b \}) + \mu_F([a,b)). \text{ From part 1 and 3 of this exercise, we have }
+\]
+\[ \mu_F(\{ b \}) + \mu_F([a,b)) =F(b)-F(b-)+F(b-)-F(a-)=F(b)-F(a-).
+\]
+
+
+\item Use the previous exercise to describe a Borel measure so that the four quantities given are different where $a = 0$ and $b = 1$. \\
+ Consider the function
+ \[
+ F(x)= \left\{
+ \begin{array}{ll}
+ 	1 & -\infty \leq x < 0\\
+ 	3 & 0 \leq x < \frac{1}{2}\\
+ 	9 & \frac{1}{2} \leq x < 1\\
+ 	27 & 1 \leq x < \infty
+ \end{array}
+ \right.
+ \]
+ If $F$ is as defined above with $a=0$, $b = 1$, then, 
+ \[
+  \begin{array}{lll}
+ 	F(a)-F(a-)=F(0) -F(0-)& = 3-1&=2\\
+ 	F(b-)-F(a) =F(1-) -F(0)& = 9-3&=6\\
+ 	F(b-)-F(a-) =F(1-) -F(0-)& = 9-1&=8\\
+ 	F(b)-F(a-) =F(1) -F(0-)& = 27-1&=26
+ \end{array}.
+ \]
+ 
+\end{enumerate}

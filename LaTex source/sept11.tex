@@ -1,0 +1,39 @@
+\begin{enumerate}
+\item If $\mu_1, \mu_2, \cdots, \mu_n$ are measures on $(X, \M)$ and $a_1, a_2, \cdots, a_n \in [0, \infty)$, then
+\begin{equation*}
+\sum_{i=1}^n a_i \mu_i \text{ is a measure on } (X, \M).
+\end{equation*}
+
+\begin{pf}
+	Since $\mu_i$ for $1 \leq i \leq n$ are measures, their range is $[0,\infty]$ so the sum of these measures will have range of $[0, \infty]$. Also, $(\sum_{i=1}^n a_i \mu_i)(\O) = \sum_{i=1}^n a_i \mu_i(\O) = \sum_{i=1}^n a_i \cdot 0=0$. Consider some disjoint collection of sets $\{A_j\}_{j=1}^\infty$. Then, by countable additivity of $\mu_i's$, 
+	\[
+	\left(\sum_{i=1}^n a_i \mu_i\right)\left(\bigcup_{j=1}^\infty A_j\right) = \sum_{i=1}^n a_i \left( \mu_i\left(\bigcup_{j=1}^\infty A_j\right) \right) = \sum_{i=1}^n a_i \sum_{j=1}^\infty \mu_i(A_j)=\sum_{j=1}^\infty\sum_{i=1}^n a_i \mu_i(A_j) . 
+	\]
+	Hence, $\sum_{i=1}^n a_i \mu_i$ is countably additivity and so this is a measure on $(X, \M)$. 
+\end{pf}
+
+\item If $(X, \M, \mu)$ is a measure space and $E, F \in \M$, then $\mu(E)+\mu(F)=\mu(E\cup F) + \mu(E \cap F)$. 
+\begin{pf}
+Assume $(X, \M, \mu)$ is a measure space and $E, F \in \M$. Notice $E=E\backslash F \cup (F \cap E)$ and $F=F\backslash E \cup (E \cap F)$. Then, $\mu(E)=\mu(E\backslash F \cup (F \cap E))$ and $\mu(F)=\mu(F\backslash E \cup (F \cap E))$. Also, $F\backslash E \cap (E \cap F)=\O$ and $E\backslash F \cap (F \cap E)=\O$. $\mu$ is finitely additive over disjoint sets, so $\mu(E)=\mu(E\backslash F)+ \mu(F \cap E)$ and $\mu(F)=\mu(F\backslash E)+ \mu(F \cap E)$. Thus,
+\[
+\mu(E) + \mu(F) = \mu(E\backslash F)+ \mu(F \cap E)+\mu(F\backslash E)+ \mu(F \cap E)=(\mu(E\backslash F)+ \mu(F \cap E)+\mu(F\backslash E)) +\mu(F \cap E). 
+\]
+Since $(E\backslash F) \cup (F\cap E) \cup (F \backslash E)$ is a disjoint union, $\mu((E\backslash F) \cup (F\cap E) \cup (F \backslash E))= \mu(E\backslash F) + \mu (F\cap E) +\mu(F \backslash E)$. But, $(E\backslash F) \cup (F\cap E) \cup (F \backslash E)=E \cup F$. Hence, $\mu(E \cup F) = \mu(E\backslash F) + \mu (F\cap E) +\mu(F \backslash E)$ and so 
+\[
+\mu(E) + \mu(F) = \mu(E \cup F) + \mu(E \cap F). 
+\]
+
+\end{pf}
+
+\item If $(X, \M, \mu)$ is a measure space and $E \in \M$, define $\mu_E(A)=\mu(A\cap E)$ for any $A \in \M$. Prove that $\mu_E$ is a measure on $\M$.
+
+\begin{pf}
+	Fix some $E \in \M$. Define $\mu_E(A)=\mu(A\cap E)$ for any $A \in \M$. Notice $\O \in \M$, so $\mu_E(\O)=\mu(\O \cap E)= \mu(\O)=0$. Next consider a collection of disjoint sets, $\{A_i\}_{i=1}^\infty \subset \M$. Then $\{A_i \cap E\}_{i=1}^\infty$ is a collection of disjoint sets, so by countable additivity of $\mu$, we have:
+	\[
+	\mu_E\left( \bigcup_{i = 1}^\infty A_i\right)=\mu\left( \bigcup_{i = 1}^\infty A_i \cap E\right)= \sum_{i=1}^\infty \mu(A_i \cap E) = \sum_{i=1}^\infty \mu_E(A_i).
+	\] 
+	Thus, $\mu_E$ is a mesure on $\M$. 
+\end{pf}
+
+
+\end{enumerate}

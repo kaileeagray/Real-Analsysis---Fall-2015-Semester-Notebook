@@ -1,0 +1,27 @@
+\begin{enumerate}
+\item Let $\nu$ be a signed measure and $\mu$ be a measure on $(X, \M)$. Prove the following are equivalent:
+\\
+(a) $\nu \ll \mu$ \\
+(b) $|\nu|\ll \mu$ \\
+(c) $\nu^+ \ll \mu$ and $\nu^- \ll \mu$.
+\begin{pf}
+\textbf{(a $\Rightarrow$ b,c)} Suppose $\nu \ll \mu$ and consider any $E \in \M$ with $\mu(E)=0$. Then, $\nu(E)=0$ by assumption. By Hahn Decomposition Theorem, we can write $E = P \cup N$. Since $P, N \subseteq E$ it must be the case that $\mu(P)=\mu(N)=0$ and so by assumption $\nu(P)=\nu(N)=0$. Then, $0=\nu(P) = \nu(P \cap E)=\nu^+(E)$ and $0=\nu(N)=\nu(N \cap E)=\nu^-(E)$. And so $\nu^+ \ll \mu$ and $\nu^- \ll \mu$. Also, $|\nu|(E)=\nu^+(E) + \nu^-(E)=0$ which implies $|\nu|\ll \mu$.
+\\
+\textbf{(b $\Rightarrow$ a)} Suppose $|\nu| \ll \mu$ and consider any $E \in \M$ with $\mu(E)=0$. Then, $|\nu|(E)=0$ by assumption. So $|\nu|(E)=\nu^+(E) + \nu^-(E) =0$. Since $\nu^+, \nu^-$ are both finite and positive $\nu^+(E) + \nu^-(E) =0$ implies $\nu^+(E)= \nu^-(E) =0$. Thus, $\nu(E)=\nu^+(E) - \nu^-(E)=0$ and $\nu \ll \mu$.
+\\
+\textbf{(c $\Rightarrow$ b)} Suppose $\nu^+ \ll \mu$ and $\nu^- \ll \mu$ and consider any $E \in \M$ with $\mu(E)=0$. Then, $\nu^+(E)=0$ and $\nu^-(E)=0$ by assumption. Thus, $\nu(E)= \nu^+(E)-\nu^-(E)=0$ so $\nu \ll \mu$.
+
+\end{pf}
+\item Suppose $\{v_j\}$ is a sequence of positive measures and $\mu$ is a measure on $(X, \M)$. Prove\\
+(a) If $\nu_j \perp \mu$ for all $j$ then $\sum \nu_j \perp \mu$.
+\begin{pf}
+	Assume $\nu_j \perp \mu$ for all $j$. Then for each $j$ there exists $E_j, F_j$ such that $E_j \cup F_j=X$, $E_j \cap F_j = \O$ with $E_j$ $\nu_j$-null and $F_j$ $\mu$-null. Notice $\cap E_i \subset E_j$ for any $j$, so $\nu_j(\cap E_i)=0$. Also any subset $A$ of $\cap E_i$ will be a subset of every $E_j$ which implies $\nu_j(A)=0$ for all $j$ so $\cap E_i$ is $\sum \nu_j$ null. Now, consider any $A \subseteq \cup F_j$ and write \[
+	A= \cup_j A_j= \cup_j\left(A \cap F_j \slash \cup_{i > j}F_i  \right) \text{ so that } A_j \subseteq F_j.
+	\]
+	Thus, $\mu(A)=\mu(\cup A_j) = \sum \mu(A_j)=\sum 0 = 0$ and so $\cup F_j$ is $\mu$ null. Since $E_j \cup F_j=X$, $E_j \cap F_j = \O$, $\cap E_j \cup \cup F_j = X$ and $\cap E_j \cap \cup F_j = \O$. Thus, $\sum \nu_j \perp \mu$.
+\end{pf}
+(b) If $\nu_j \ll \mu$ for all $j$ then $\sum \nu_j \ll \mu$.
+	\begin{pf}
+Assume $\nu_j \ll \mu$ for all $j$. Consider any $E \in \M$ with $\mu(E)=0$. By assumption, $\nu_j(E)=0$ for all $j$ so $\sum \nu_j(E)=0$. Thus, $\sum \nu_j \ll \mu$.
+\end{pf}
+\end{enumerate}

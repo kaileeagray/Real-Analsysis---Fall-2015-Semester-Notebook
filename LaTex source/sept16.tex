@@ -1,0 +1,41 @@
+\begin{enumerate}
+\item Let $(X,\M, \mu)$ be a finite measure space. Denote by $E\triangle F \colon = (E \cap F^c)\cup (E^c \cap F)$.
+\subitem(a) If $E, F \in M$ and $\mu(E\triangle F )=0$ then $\mu(E)=\mu(F)$.
+\begin{pf}
+Let $E, F \in M$ and $\mu(E\triangle F )=0$. Then $E \subseteq F \cup (E \triangle F)$. By monotonicity of $\mu$, $\mu(E) \leq \mu(F \cup (E \triangle F)$. By subadditivity of $\mu$, $\mu(F \cup (E \triangle F) \leq \mu(F) + \mu(E \triangle F) = \mu(F)$. Thus, $\mu(E) \leq \mu(F)$. \\
+Similarly, $F \subseteq E \cup (E \triangle F)$ which, by monotonicity and subadditivity of $\mu$ implies $\mu(F) \leq \mu(E \cup (E \triangle F) \leq \mu(E) + \mu(E\triangle F) = \mu(E)$. Thus, $\mu(F) \leq \mu(E)$.\\
+Since $\mu(F) \leq \mu(E)$ and $\mu(E) \leq \mu(F)$, $\mu(F) = \mu(E)$.
+\end{pf}
+
+\subitem(b) Show that $E \sim F$ if $\mu(E \triangle F)=0$ is an equivalence relation on $\M$. 
+
+\begin{pf}
+\textbf{(reflexive)} For any set $E \in \M$, $\mu(E \triangle E)= \mu(\O) = 0$, so $E \sim E$.
+\\
+\textbf{(symmetric)} Let $E, F \in \M$ such that $E \sim F$. Then, $\mu(E \triangle F) = 0$. Since $E \triangle F = F \triangle E$, $\mu(E \triangle F) = \mu(F \triangle E) $ so $F \sim E$. \\
+\textbf{(transitive)}	Let $E, F, G \in \M$ such that $E \sim F$ and $F \sim G$. Then, $\mu(E \triangle F) = 0$ and $\mu(F \triangle G) = 0$.  Notice $G \subseteq F \cup (G \backslash F)$ so $G\backslash E \subseteq (F \cup (G \backslash F))\backslash E$. Also $(F \cup (G \backslash F))\backslash E = (F \cup (G \backslash F))\cap E^c= (F \cap E^c) \cup (G \backslash F)\cap E^c$. Since $(G \backslash F) \cap E^c \subseteq G \backslash F$, $(F \cap E^c) \cup (G \backslash F)\cap E^c \subseteq (F \cap E^c) \cup (G \backslash F)= (F \backslash E) \cup (F \backslash F)$. Thus, $G \backslash E \subseteq (G \backslash F) \cup (F \backslash E)$ and so $G \backslash E \cup (E \backslash G) \subseteq (G \backslash F) \cup (F \backslash E) \cup (E \backslash G)$. By Venn diagram, we can see $(G \backslash F) \cup (F \backslash E) \cup (E \backslash G) = (E \triangle F) \cup (F \triangle G)$. Hence, $(E \triangle G) \subseteq (E \triangle F) \cup (F \triangle G)$. By monotonicity and subadditivity, $\mu(E \triangle G) \leq \mu((E \triangle F) \cup (F \triangle G)) \leq \mu(E \triangle F) + \mu(F \triangle G)=0 $. Therefore,  $\mu(E \triangle G)=0$ so $E \sim G$. 
+\end{pf}
+
+\item Prove that a $\sigma$-finite measure is semi-finite.  
+	\begin{pf}
+Let $(X, \M, \mu)$ be a measure space and $\mu$ be $\sigma$-finite. Then, $X= \bigcup_{j=1}^\infty X_j$ with $X_j \in \M$ and $\mu(X_j) < \infty$ for all $j$.  If $\mu$ is finite, then $\mu$ is semi-finite, so suppose there exists some $E \in \M$ such that $\mu(E)=\infty$. Notice $E = E \cap X = E \cap \bigcup_{j=1}^\infty X_j = \bigcup_{j=1}^\infty (E \cap X_j)$ so by monotonicity and subadditivity of $\mu$
+\[
+\infty = \mu(E) \leq \mu \left(\bigcup_{j=1}^\infty (E \cap X_j)\right) \leq \sum_{j = 1}^ \infty \mu(E \cap X_j). \text{ Hence, } \sum_{j = 1}^ \infty \mu(E \cap X_j)= \infty. 
+\]
+Because $\sum_{j = 1}^ \infty \mu(E \cap X_j)= \infty$, there must exist some $k \in \N$ with $\mu(E \cap X_k)>0$. Because $\mu$ is $\sigma$-finite, we know $\mu(X_k) < \infty$. Also, $E \cap X_k \subseteq X_k$, so 
+\[
+0 < \mu(E \cap X_k) \leq \mu(X_k) < \infty. 
+\]
+Thus, for any $E \in \M$ with $\mu(E) = \infty$, there exists $X_k \in \M$ such that $E \cap X_k \subset E$ and $0 < \mu(E \cap X_k) < \infty$; $\mu$ is semi-finite. 
+\\
+\url{http://faculties.sbu.ac.ir/~shahrokhi/M-P.pdf}
+\end{pf}
+
+\item If $\mu$ is a semi-finite measure and $\mu(E)=\infty$ prove that for any $C>0$ there is $F \subseteq E$ with $C<\mu(F)<\infty$.
+\begin{pf}
+Assume $\mu$ is a semi-finite measure. Then, if $\mu(E)= \infty$, there exists $F\in \M$ such that $F \subset E$ and $0 < \mu(F) < \infty$. Let $\C = \{F \subset E : \mu(E)< \infty \}$. Since $\mu$ is semi-finite, $\C \neq \O$. Thus, we can consider $\alpha = \sup \{\mu(F) : F\in \C\}$. Suppose $\alpha<\infty$. Then, for all $n \geq 1$, there exist sets $F_n \in \C$ such that $\alpha \geq \mu(F_n) \geq \alpha-\frac{1}{n}$; further, $\lim_{n\rightarrow \infty}\mu(F_n)=\alpha$. Let $F=\bigcup_{k=1}^nF_n$ such that $\mu(F)=\alpha$.  If $\alpha<\infty$, $\mu(F)< \infty$. Since $\mu(E)=\infty$, $\mu(F)< \infty$ implies $\mu(E\backslash F)= \infty$. Because $\mu$ is semi-finite, $\mu(E\backslash F)= \infty$ implies there exists some $F^{'}\subset E\backslash F$ such that $0<\mu(F^{'})<\infty$. Since $F \subset F \cup F^{'}$, $\mu(F)\leq \mu(F\cup F^{'})$ so $\alpha \leq \mu(F \cup F^{'})$. But, $0<\mu(F^{'})<\infty$ and $0<\mu(F)<\infty$ implies $0<\mu(F\cup F^{'})<\infty$. So, $F \cup F^{'} \in \C$ with $\alpha \leq \mu(F\cup F^{'})$ which contradicts $\alpha$ as the supremum. Thus, $\alpha = \infty$. \\
+Since $\alpha=\infty$, for all $C>0$, there exists a $F \in \C$ such that $\mu(F)>C$. Thus, for any $C>0$, there is $F \subset E$ with $C<\mu(F)<\infty$. 
+\\
+	\url{http://faculties.sbu.ac.ir/~shahrokhi/M-P.pdf}
+\end{pf}
+\end{enumerate}

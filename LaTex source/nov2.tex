@@ -1,0 +1,63 @@
+\begin{enumerate}
+\item Let $f_n(x)=ae^{-nax}-be^{-nbx}$ where $0<a<b$. Verify the following: \\
+\[
+\text{(a) } \sum_{n=1}^\infty \int_0^\infty |f_n(x)|\ dx= \infty 	
+\]
+\[
+\sum_{n=1}^\infty \int_0^\infty |f_n(x)|\ dx \geq \sum_{n=1}^\infty \int_{\frac{1}{an}}^\infty |ae^{-nax}-be^{-nbx}|\ dx \geq \sum_{n=1}^\infty \left|\int_{\frac{1}{an}}^\infty ae^{-nax}-be^{-nbx}\right| \ dx.
+\]
+\[
+\text{Note, } \int_{\frac{1}{an}}^\infty ae^{-nax}-be^{-nbx} \ dx =\lim\limits_{k \rightarrow \infty}\left(-\frac{1}{ne^{nak}}+\frac{1}{ne^{nbk}}\right)+\frac{1}{ne^{na\frac{1}{an}}}-\frac{1}{ne^{nb\frac{1}{an}}}=0+\frac{1}{ne}-\frac{1}{ne^{\frac{b}{a}}}
+\]
+\[
+\text{Thus, } \sum_{n=1}^\infty \int_0^\infty |f_n(x)|\ dx \geq \sum_{n=1}^\infty \left| \frac{1}{ne}-\frac{1}{ne^{\frac{b}{a}}}\right|= \left(e-e^{\frac{b}{a}} \right)\sum_{n=1}^\infty\frac{1}{n}= \infty. 
+\]
+\[
+\text{(b) } \sum_{n=1}^\infty \int_0^\infty f_n(x)\ dx= 0
+\]
+\[
+\text{Note, } \int_{\frac{1}{an}}^\infty ae^{-nax}-be^{-nbx} \ dx =\lim\limits_{k \rightarrow \infty}\left(-\frac{1}{ne^{nak}}+\frac{1}{ne^{nbk}}\right)+\frac{1}{ne^{na\cdot 0}}-\frac{1}{ne^{nb\cdot 0}}=0+\frac{1}{n}-\frac{1}{n}.
+\]
+\[
+\text{Thus, } \sum_{n=1}^\infty \int_0^\infty f_n(x)\ dx= 0.
+\]
+\[
+\text{(c) } \sum_{n=1}^\infty f_n(x) \in \ L^1\left( [0,\infty),m) \right) \text{ and }  \int_0^\infty \sum_{n=1}^\infty f_n(x)\ dx= \log\left(\frac{b}{a}\right)
+\]
+\[
+\text{Notice } \sum_{n=1}^\infty f_n(x) = a\sum_{n=1}^\infty \left(\frac{1}{e^{ax}}\right)^n-b\sum_{n=1}^\infty \left(\frac{1}{e^{bx}}\right)^n= \frac{ae^{-ax}}{1-e^{-ax}} - \frac{be^{-bx}}{1-e^{-bx}}. \text{ Thus,}
+\]
+\[
+\int_0^\infty \sum_{n=1}^\infty f_n(x)\ dx= \int_0^\infty\frac{ae^{-ax}}{1-e^{-ax}} - \int_0^\infty\frac{be^{-bx}}{1-e^{-bx}}=\left[\ln \left|1-e^{-ax}\right|- \ln\left|1-e^{-bx}\right|\right]_{0}^\infty=\left[\ln \left|\frac{1-e^{-ax}}{1-e^{-bx}}\right|\right]_{0}^\infty. 
+\]
+\[
+\text{Additionally, } \left[\ln \left|\frac{1-e^{-ax}}{1-e^{-bx}}\right|\right]_{0}^\infty. = - \lim\limits_{s \rightarrow 0}\ln \left|\frac{1-e^{-as}}{1-e^{-bs}}\right|= -\ln \left| \lim\limits_{s \rightarrow 0} \frac{1-e^{-as}}{1-e^{-bs}}\right|
+\]
+\[
+= -\ln \left| \lim\limits_{s \rightarrow 0} \frac{ae^{-as}}{be^{-bs}}\right|=-\ln\left|\frac{a}{b}\right|= \ln \left(\frac{a}{b} \right)^{-1}= \ln \left( \frac{b}{a}\right)
+\]
+Thus, $\int_0^\infty \sum_{n=1}^\infty f_n(x)\ dx< \infty$ so $\sum_{n=1}^\infty f_n(x)$ is measurable. Also, $\int_0^\infty \left|\sum_{n=1}^\infty f_n(x)\right|\ dx<\infty$. So, $\sum_{n=1}^\infty f_n(x) \in L^1$.
+
+\url{http://faculties.sbu.ac.ir/~shahrokhi/M-P.pdf}
+\item[(b)] \[
+\sum \int_0^\infty f_n(x)dx = 0\]
+\begin{pf}
+For every $n \geq 1$, 
+\[
+\int_0^\infty f_n = \int_0^\infty \left( ae^{-nax}-be^{-nbx}\right)dx =  \frac{-e^{-nax}}{n}+\frac{e^{-nbx}}{n}\biggr|_0^\infty=0.
+\]
+\[
+\text{Thus, } \sum \int_0^\infty f_n(x)dx = 0.
+\]
+\end{pf}
+\item[(3)] 
+\[ \sum f_n \in L^1([0,\infty)) \text{ and } \int_0^\infty \sum f_n(x)dx = \log (b/a). \]
+\begin{pf}
+Notice that $f=\sum f_n$ is the difference of two geometric series:
+\[ \sum f_n =  a \sum (e^{ax})^{-n} - b \sum (e^{bx})^{-n}.
+\]
+\[\text{Hence, }f_n(x) = \frac{ae^{-ax}}{1-e^{-ax}}-\frac{be^{-bx}}{1-e^{-bx}} \text{ because } 0<a<b. \]
+ This is Riemann integrable as $$\left[ \ln \left| \frac{1-e^{-ax}}{1-e^{-bx}}\right| \right]_0^\infty= -\lim_{x\to 0}\left[ \ln \left| \frac{1-e^{-ax}}{1-e^{-bx}}\right| \right] =-\left[ \ln \left| \lim_{x\to 0}\frac{1-e^{-ax}}{1-e^{-bx}}\right| \right]=-\left[ \ln \left| \lim_{x\to 0}\frac{ae^{-ax}}{be^{-bx}}\right| \right]=\ln \frac{b}{a}.$$  Because $-\! \infty \! < \int \! f  \! < \!\infty$, we have $-\infty < \int f^+\! -\! \int f^- < \infty$, so $\int |f| \! =\! \int f^+ + \int f^-\! <\! \infty$, and $f\in L^1([0,\infty))$.
+\end{pf}
+\end{enumerate}
+

@@ -1,0 +1,62 @@
+Let $(X, \M, \mu)$ be a measure space.
+
+\begin{enumerate}
+\item Let $N=\{ S \in M : \mu(S)=0 \}$ and $\overline{M}=\{ E \cup F : E \in M$ and there is $S \in N$ such that $F \subseteq S \}$. Prove that $\overline{M}$ is a $\sa$ that contains $M$.
+\begin{pf}
+	To show $\overline{M}$ is closed under countable unions, we will start by showing $N$ is closed under countable unions. Consider a disjoint collection of sets, $\{E_i\}_{i=1}^\infty \subset N$. Then, for all $i$, $E_i \in M$ and $\mu(E_i)=0$. Also, because $\mu$ is sub-additive and $E_i\cap E_j = \O$ for all $i\neq j$, $\mu\left(\bigcup_{i=1}^\infty E_i\right)=\sum_{i=1}^\infty\mu(E_i)=\sum_{i=1}^\infty 0=0$. Since $E_i \in M$ for all $i$, $\bigcup_{i=1}^\infty E_i \in M $. Thus, $\bigcup_{i=1}^\infty E_i \in N$ and so $N$ is closed under countable unions.
+	Notice $\overline{M}$ is the union of sets from $M$ and $N$. Thus, because $M$ and $N$ are closed under countable unions, $\overline{M}$ is closed under countable unions. \\
+	Next, we will show $\overline{M}$ is closed under complements. Consider $E \cup F \in \overline{M}$. Then, $E \in M$ and $F \in N$. Suppose $E \cap N = \O$. 
+	\\
+	\noindent \textbf{Lemma: $E \cup F=(E\cup N) \cap (N^c \cup F)$}
+	\begin{pf}
+	First, we will show $E \cup F \subseteq (E\cup N) \cap (N^c \cup F)$. Let $x \in E \cup F$. Then, $x \in E$ or $x \in F$. Suppose $x \in E$. Then, $x \in E \cup N$. Also, since $E \cap N = \O$, $x \in N^c$ so $x \in N^c \cup F$. Thus, $x \in (E\cup N) \cap (N^c \cup F)$. Suppose $x \in F$. Then, $x \in N^c \cup F$. Since $x \in F$ and $E \cup F \in \overline{M}$, $F \in N$ and there exists some $S \in N$ such that $F \subseteq S$. Thus, $x \in N$ and so $x \in E \cup N$. Therefore, $E \cup F \subseteq (E\cup N) \cap (N^c \cup F)$. \\
+	Next, we will show $E \cup F \supseteq (E\cup N) \cap (N^c \cup F)$. Let $x \in (E\cup N) \cap (N^c \cup F)$. Then, $x \in E \cup N$ and $x \in N^c \cup F$. If $x \in E$, then $x \in E \cup F$ and we have our desired relation. So, suppose $x \not\in E$. Then, since $x \in E \cup N$, $x \in N$. Since $x \in N$, $x \not\in N^c$. Since $x \in N^c \cup F$, this implies $x \in F$ so that $x \in E \cup F$. Thus, $E \cup F \supseteq (E\cup N) \cap (N^c \cup F)$. 
+	\end{pf}
+
+	\noindent By the lemma above, we can write $(E \cup F)^c = ((E\cup N) \cap (N^c \cup F))^c=(E \cup N)^c \cup (N^c \cup F)^c= (E \cup N)^c \cup (N \backslash F) $. $M$ is closed under complements and countable unions, so $E \in M$ and $N \subset M$ implies $E \cup N \in M$ and $(E \cup N)^c \in M$. Also, $N \backslash F \subset N$. Thus, $(E \cup F)^c \in \overline{M}$. 
+	\\
+	Now, suppose $E \cap N \neq \O$, and consider the following lemma: 
+\\	\noindent \textbf{Lemma: If $E \cap N \neq \O$, $E \cup F=(E\cup N\backslash E) \cap ((N \backslash E)^c \cup F \backslash E)$}
+	\begin{pf}
+	First, we will show $E \cup F\subseteq (E\cup N\backslash E) \cap ((N \backslash E)^c \cup F \backslash E)$. Let $x \in E \cup F$. Then, $x \in E$ or $x \in F$. Suppose $x \in E$. Then, $x \in E\cup N\backslash E$. Since $x \in E$, $x \in (N^c \cup E)=(N \backslash E)^c $. 
+	Thus, $x \in (E\cup N\backslash E) \cap ((N \backslash E)^c \cup F \backslash E)$. Suppose $x \in F$, but $x \not\in E$. Then, $x \in F \backslash E$, so $x \in (N \backslash E)^c \cup F \backslash E$. Since $x \in F$ and $E \cup F \in \overline{M}$, there exists some $S \in N$ such that $F \subseteq S$. Thus, $x \in N$. Since $x \not\in E$, $x \in N\backslash E$ so $x \in E \cup N \backslash E$. Therefore, $E \cup F\subseteq (E\cup N\backslash E) \cap ((N \backslash E)^c \cup F \backslash E)$. \\
+	Next, we will show $E \cup F \supseteq (E\cup N\backslash E) \cap ((N \backslash E)^c \cup F \backslash E)$. Let $x \in (E\cup N \backslash  E) \cap ((N \backslash E)^c \cup F \backslash E)$.  Then, $x \in (E\cup N\backslash E)$ and $x \in  ((N \backslash E)^c \cup F \backslash E)$. If $x \in E$, then $x \in E \cup F$ and we have our desired relation. So, suppose $x \not\in E$. 
+	
+	Then, since $x \in E \cup N \backslash E$, $x \in N \backslash E$ and so $x \in N$. Since $x \in N$, $x \not \in N^c$ and so $x \not \in (N\backslash E)^c$. Since $x \in (N\backslash E)^c \cup F \backslash E$,  $x \in F \backslash E$ so that $x \in E$. Thus, $x \in E \cup F$. 
+	
+	Hence, $E \cup F\supseteq (E\cup N\backslash E) \cap ((N \backslash E)^c \cup F \backslash E)$. 
+	\end{pf}
+\noindent By the lemma above, we can write $(E \cup F)^c = ((E\cup N\backslash E) \cap ((N \backslash E)^c \cup F \backslash E))^c=(E\cup N\backslash E)^c \cup ((N \backslash E)^c \cup F \backslash E)^c=  (E\cup N\backslash E)^c \cup (N \cap (E \backslash F))$. $M$ is closed under complements and countable unions and intersections, so $E \in M$ and $N\backslash E \subset M$ implies $E \cup N\backslash E \in M$ and $(E\cup N\backslash E)^c \in M$. Also, $N \cap (E \backslash F) \subset N$. Thus, $(E \cup F)^c \in \overline{M}$. 
+
+\end{pf}
+
+\item If $E \cup F \in \overline{M}$ define $\overline{\mu}(E \cup F)= \mu(E)$. Prove that this function is well defined. 
+\begin{pf}
+Assume $E^{'}\cup F^{'}= E^{''}\cup F^{''}$ with $E^{'}\cup F^{'}$ and $ E^{''}\cup F^{''}$ in $\overline{M}$. Since $E^{'} \subseteq E^{'}\cup F^{'}, \ E^{'} \subseteq E^{''}\cup F^{''}$. Also, since $E^{''}\cup F^{''} \in \overline{M}$, there exists $S^{''} \in N$ such that $F^{''} \subseteq S^{''}$. Thus, $E^{'} \subseteq E^{''}\cup F^{''} \subseteq E^{''}\cup S^{''}$. By monotonicity of $\mu$,  $\mu(E^{'}) \leq \mu(E^{''}\cup F^{''}) \leq \mu(E^{''}\cup S^{''})$. Also, by subadditivity of $\mu$, $\mu(E^{''}\cup S^{''})\leq \mu(E^{''}) + \mu(S^{''})$. Since $S^{''} \in N$, $\mu(S^{''})=0$. Thus, $\mu(E^{'}) \leq \mu(E^{''})$. \\
+Similarly, $E^{''} \subseteq E^{''}\cup F^{''}, so \ E^{''} \subseteq E^{'}\cup F^{'}$. Also, since $E^{'}\cup F^{'} \in \overline{M}$, there exists $S^{'} \in N$ such that $F^{'} \subseteq S^{'}$. Thus, $E^{''} \subseteq E^{'}\cup F^{'} \subseteq E^{'}\cup S^{'}$. By monotonicity of $\mu$,  $\mu(E^{''}) \leq \mu(E^{'}\cup F^{'}) \leq \mu(E^{'}\cup S^{'})$. Also, by subadditivity of $\mu$, $\mu(E^{'}\cup S^{'})\leq \mu(E^{'}) + \mu(S^{'})$. Since $S^{'} \in N$, $\mu(S^{'})=0$. Thus, $\mu(E^{''}) \leq \mu(E^{'})$.\\
+Hence $\mu(E^{'})=\mu(E^{''})$ and by definition of $\overline{\mu}$, $\mu(E^{'})=\overline{\mu}(E^{'}\cup F^{'})$ and $\mu(E^{''})=\overline{\mu}(E^{''}\cup F^{''})$ which implies $\overline{\mu}(E^{'}\cup F^{'})=\overline{\mu}(E^{''}\cup F^{''})$. Thus, $\overline{\mu}$ is well defined. 
+\end{pf}
+\item Prove that $\overline{\mu}$ is a measure on $\overline{M}$ and that the measure is complete.
+\begin{pf}
+We will prove $\overline{\mu}$ is a measure on $\overline{M}$. Note $\O \in M$ and since $\mu(\O) = 0$ $\O \in N$. Thus, $\overline{\mu}(\O \cup \O)= \mu(\O)=0$. Now, we will show $\overline{\mu}$ is countably additive. Consider a disjoint collection of sets in $\overline{M}$, $\{ A_i \}_{i=1}^\infty$. Then, for all $i$, $A_i = E_i \cup F_i$ for some $E_i \in M$ and where $F_i \subseteq S_i$ for some $S_i \in N$. Then, 
+\[
+\overline{\mu}\left(\bigcup_{i=1}^\infty A_i\right) = \overline{\mu}\left(\bigcup_{i=1}^\infty E_i \cup F_i \right) = \overline{\mu}\left(\bigcup_{i=1}^\infty E_i \cup \bigcup_{i=1}^\infty F_i \right)
+\]
+$M$ and $N$ are closed under countable unions, so $\bigcup_{i=1}^\infty E_i \in M$ and $ \bigcup_{i=1}^\infty F_i \subseteq \bigcup_{i=1}^\infty S_i \in N$. By definition of $\overline{\mu}$, because $E_i's $ are disjoint and because $\mu$ is countably additive we can write 
+\[
+\overline{\mu}\left(\bigcup_{i=1}^\infty E_i \cup \bigcup_{i=1}^\infty F_i \right) = {\mu}\left(\bigcup_{i=1}^\infty E_i \right) = \sum_{i=1}^\infty\mu(E_i)= \sum_{i=1}^\infty\overline{\mu}(E_i \cup F_i) =\sum_{i=1}^\infty\overline{\mu}(A_i).\]
+Thus, $\overline{\mu}$ is countably sub-additive. 
+\end{pf}
+\begin{pf}
+Next, we will prove $\overline{\mu}$ is a complete measure on $\overline{M}$. To prove this we must show that the domain of $\overline{\mu}$ contains all subsets of null sets. Suppose $E \cup F$ is a $\overline{\mu}$-null set.  Since $E \cup F$ is a $\overline{\mu}$-null set, $\overline{\mu}(E \cup F) = 0 = \mu(E)$. Thus, $E$ is a $\mu$-null set. Also, if $E \cup F \in \overline{M}$, then $F \subseteq S \in N$, so $0 \leq \mu(E \cup S) \leq \mu(E) + \mu(S) = 0$. Thus, $\mu(E \cup S) = 0$ so $E \cup S$ is a $\mu$-null set. Consider any $A \subseteq E \cup F$. The subset relation is transitive, so $A \subseteq E \cup S$. Thus, $A$ is a subset of some element in $N$, so since $\O \in M$, $\O \cup A \in N$, so we can write $\overline{\mu}(A)=\overline{\mu}(\O \cup A)= \mu(\O)=0$. Thus, $A \in \overline{M}$. \\
+\noindent **Sources used: \url{http://www.math.ubc.ca/~marcus/Math507420/Math507420_HW2_solns_2013.pdf} and \url{https://proofwiki.org/wiki/Completion_Theorem_(Measure_Spaces)}
+\end{pf}
+
+
+\item Prove that if $\sigma$ is a complete measure on $\overline{M}$ such that $\sigma |_M=\mu$, then $\sigma = \overline{\mu}$. 
+\begin{pf}
+Let $\sigma$ be a complete measure on $\overline{M}$ such that $\sigma |_M=\mu$. Consider any $E \cup F \in \overline{M}$. Then, $E \subset E \cup F \subset E \cup S$ for some $S \in N$. Thus, by monotonicity of $\sigma$, 
+$\sigma(E) \leq \sigma(E \cup F) \leq \sigma(E \cup S)$. Since $E \in M$ and $S \in M$, $E \cup S \in M$ and we can write $\sigma(E \cup S)= \mu(E \cup S)$ and by subadditivity of $\mu$, $\mu(E \cup S)\leq \mu(E) + \mu(S)$. $S \in N$, so $\mu(S)=0$. Thus, $\sigma(E) \leq \sigma(E \cup F) \leq \sigma(E \cup S) = \mu(E \cup S) \leq \mu(E)=\sigma(E)$ since $E \in M$. Thus, $\sigma(E) \leq \sigma(E \cup F) \leq \sigma(E)$ so $\sigma(E \cup F)= \mu(E)=\overline{\mu}(E \cup F)$. Thus, $\sigma = \overline{\mu}$.\\
+**Source used: \url{ http://faculties.sbu.ac.ir/~shahrokhi/M-P.pdf }
+\end{pf}
+\end{enumerate}

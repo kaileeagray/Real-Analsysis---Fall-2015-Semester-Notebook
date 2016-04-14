@@ -1,0 +1,118 @@
+\newcounter{itemcounter4}
+\begin{list}
+{\text{(\arabic{itemcounter4})}}
+{\usecounter{itemcounter4}\leftmargin=1.4em}
+\item Show that if $E_1 \cup E_2$ is Lebesgue measurable and $m(E_2)=0$, then $E_1$ is Lebesgue measurable.
+\begin{pf}
+	Suppose $E_1 \cup E_2$ is Lebesgue measurable and $m(E_2)=0$. Since $m(E_2)=0$, $E_2$ is Lebesgue measurable.  Notice $(E_1 \cup E_2) \slash E_1 \subseteq E_2$. Since the subset of Lebesgue measurable sets are measurable, so $(E_1 \cup E_2) \slash E_1$ is measurable. Also, the complement and intersection of measurable sets is measurable, so $(E_1 \cup E_2) \cap ((E_1 \cup E_2) \slash E_1)^c$ is measurable. By inspection, we can see $E_1=(E_1 \cup E_2) \cap ((E_1 \cup E_2) \slash E_1)^c$. Thus, $E_1$ is Lebesgue measurable. 
+\end{pf}
+
+\item Let $\mu_F$ be the Borel measure on $\R$ with distribution function $F:$
+\[ F(x) = \left\{
+ \begin{array}{ll}
+	\arctan(x)+5 & \text{ if } x\geq 2,\\
+	x^2-2 & \text{ if } 0 \leq x < 2,\\
+	e^x - 3 & \text{ if }  x<0.\\
+\end{array} \right.
+ \]
+ (a) Calculate $\mu_F(\R), \mu_F(\{2\}),$ and $\mu_F((-\infty, 0))$.\\
+ By continuity from below, we have $\mu_F(\R)= \mu_F\left( \bigcup_{x \in \N} (-x, x] \right) = \lim_{x \rightarrow \infty} \mu_F((-x, x])$ so 
+ \[
+  \mu_F(\R)= \lim_{x \rightarrow \infty} F(x) -F(-x)=  \lim_{x \rightarrow \infty} (\arctan x + 5 ) - \lim_{x \rightarrow \infty} (e^{-x}-3) = \frac{\pi}{2} + 8.\]
+ \[ \mu_F(\{2\}) = F(2) - F(2-) = \arctan(2) + 5 - (2^2 - 2)= \arctan(2) + 3.
+ \]
+ \[ \mu_F((-\infty, 0)) = \mu_F\left( \bigcup_{x \in \N} \left(-x, -\frac{1}{x} \right]\right) = \lim_{x \rightarrow \infty} \mu_F\left( \left(-x, -\frac{1}{x} \right] \right) =  \lim_{x \rightarrow \infty} F\left(- \frac{1}{x}\right) - \lim_{x \rightarrow \infty} F(-x)
+ \]
+ \[
+  = \lim_{x \rightarrow \infty}(e^{-\frac{1}{x}} - 3 - e^{-x} + 3 ) = 1 .
+ \]
+ 
+ (b) Calculate the Lebesgue derivative of $\mu_F$. \\
+  To calculate, recall the Lebesgue-Radon-Nikodym representation given in Theorem 3.22, $d \mu_F = d \lambda + f \ dm$ where $f$ is the Lebesgue derivative and since we are working in $\R$ we can write
+ \[
+ f(x) = \lim_{r \rightarrow 0} \frac{\mu_F(B(r,x))}{m(B(r,x))} = \lim_{r \rightarrow 0}\frac{\mu_F((x-r,x+r))}{m((x-r,x+r))} = \lim_{r \rightarrow 0} \frac{F((x+r)-)-F(x-r)}{2r}.
+ \]
+ Suppose $x <0$, then\[
+ \lim_{r \rightarrow 0} \frac{F((x+r)-)-F(x-r)}{2r} = \lim_{r \rightarrow 0} \frac{e^{x+r}-e^{x-r}}{2r}= e^x \lim_{r \rightarrow 0} \frac{e^{r}-e^{-r}}{2r}=e^x.
+ \]
+  Suppose $ 0 < x < 2$, then\[
+ \lim_{r \rightarrow 0} \frac{F((x+r)-)-F(x-r)}{2r} = \lim_{r \rightarrow 0} \frac{(x+r)^2-2 - (x-r)^2 +2}{2r} =\lim_{r \rightarrow 0 } \frac{4r}{2r}=2.
+ \]
+   Suppose $ x>2$, then\[
+ \lim_{r \rightarrow 0} \frac{F((x+r)-)-F(x-r)}{2r} = \lim_{r \rightarrow 0} \frac{\arctan(x+r)- \arctan(x-r) }{2r} =0.
+ \]
+  
+ (c) Is $\mu_F$ absolutely continuous with respect to Lebesgue measure? \\
+ No. Recall $m(\{ 2 \})=0$ but, by (a), $\mu_F(\{ 2 \}) = \arctan(2) + 3 \neq 0$. 
+ \item Let $f \in L^1(X, \mu)$. Show that $\{x \in X: f(x) \neq 0 \}$ is $\sigma$-finite.
+\begin{pf}
+To show $A$ is $\sigma$-finite, we will first show $\bigcup_1^\infty A_n = A$ where $A_n = \{x : |f(x)|> \frac{1}{n}, n \in \N\}$.\\
+Suppose $x \in A$. Then, $f(x) \neq 0$ so there must exist some $n \in \N $ such that $|f(x)| > \frac{1}{n}$. Thus, $\bigcup_1^\infty A_n \supset A$. \\
+Suppose $x \in \bigcup_1^\infty A_n$. Then, there exists some $n \in \N $ such that $|f(x)| > \frac{1}{n}$. Thus, $f(x) \neq 0$ and so $x \in A$ and $\bigcup_1^\infty A_n \subset A$. \\
+Next, we will show $\mu(A_n) \neq \infty$ for any $n$. Suppose there exists some $n$ with $\mu(A_n) = \infty$. Then, \[
+\int |f| \ d\mu \geq \int_{A_n} |f| \ d\mu \geq \int_{A_n} \frac{1}{n} \ d\mu = \frac{1}{n} \mu(A_n) = \infty.
+\]
+However, $f \in L^1$, so $\int |F| < \infty$. Thus, $A = \bigcup_1^\infty A_n$ with $\mu(A_n)< \infty$ for all $n$ so $\{x \in X: f(x) \neq 0 \}$ is $\sigma$-finite.
+
+\end{pf}
+
+ \item Suppose $f \in L^1(\R, m)$. Show that \[
+ \lim_{n \rightarrow \infty}\int_\R f(x) \cos(nx)\ dx = 0. 
+ \]
+ Hint: show this first for the characteristic function of an interval.
+ \item Assume that for every $\epsilon>0$ there exists $E \subseteq X$ such that $\mu(E)< \epsilon$ and $f_n \rightarrow f$ uniformly on $E^c$. Show that $f_n \rightarrow f$ a.e.
+ \begin{pf}
+ Assume that for every $\epsilon>0$ there exists $E \subseteq X$ such that $\mu(E)< \epsilon$ and $f_n \rightarrow f$ uniformly on $E^c$. Let $A = \{ x : f_n(x) \rightarrow f(x) \}$. To show $f_n \rightarrow f$ a.e., it suffices to show $\mu(A^c) = 0$. Suppose $\mu(A^c) \neq 0$. Then, $\mu(A^c)=k$ for some $k>0$. Choose $\epsilon<k$. Then, there exists $E \subseteq X$ such that $\mu(E)<\epsilon< k$ and $f_n \rightarrow f$ on $E^c$. Since $f_n \rightarrow f$ on $E^c$ and $A = \{ x : f_n(x) \rightarrow f(x) \}$, $E^c \subseteq A$ and so $A^c \subseteq E$. Thus, $\mu(A^c) \leq \mu(E)$ and so $\mu(E) \geq k$. This is a contradiction to our assumption that $\mu(A^c) = k$, $k \neq 0$. Thus, $\mu(A^c) =0$ and $f_n \rightarrow f$ a.e.
+  \end{pf}
+
+ \item For each $E \subseteq \R$, let $\mu(E)=\#(E\cap \Z)$. Calculate
+ \[
+ \int \int_{[2, \infty)\times[2, \infty)}(y-1)x^{-y}d(m(x)\times \mu(y)). \text{ What theorem did you use?}
+ \]
+ We will use Fubini-Tonelli to write: \begin{eqnarray*}
+ \int \int_{[2, \infty)\times[2, \infty)}(y-1)x^{-y}d(m(x)\times \mu(y))& = & \int_{[2, \infty)} \int_{[2, \infty)}(y-1)x^{-y} \ dm(x) \ d \mu(y)\\
+ & = & \int_{[2, \infty)}\frac{y-1}{-y+1} x^{1-y} \ \biggr\rvert_2^\infty \ d\mu(y) \\
+ & = & \int_{[2, \infty)} \left(  \lim_{x \rightarrow \infty}(-x^{1-y}) +2^{1-y} \right) \ d \mu(y)\\
+  & = & \int_{[2, \infty)}   2^{1-y}  \ d \mu(y)\\
+  & = & \sum_{n=2}^\infty \int_{(n, n+1)} 2^{y-1} \ d \mu(y) + \sum_{n=2}^ \infty \int_{\{n\}} 2^{y-1} \ d\mu(y) \\
+  & = & \sum_{n=2}^\infty 2^{n-1} \cdot \mu((n, n+1))  + \sum_{n=2}^ \infty \int_{\{n\}} 2^{y-1} \ d\mu(y) \\
+    & = & \sum_{n=2}^\infty  2^{n-1} \cdot 0  + \sum_{n=2}^ \infty \mu(\{n\}) 2^{n-1}  \\
+    & = & \sum_{n=2}^ \infty 2^{n-1}  \\
+    & = & 1.
+ \end{eqnarray*}
+ 
+ \item Let $F: \R \rightarrow \R$. Prove that there is a constant $M$ such that $|F(x)-F(y)|\leq M|x-y|$ for every $x, y \in \R$ if and only if $F$ is absolutely continuous and $|F^{'}|\leq M$ a.e.
+ \begin{pf}
+ 	$(\Rightarrow) $ Assume that there is a constant $M$ such that $|F(x)-F(y)|\leq M|x-y|$ for every $x, y \in \R$. Let $\varepsilon>0$. Choose $\delta = \frac{\varepsilon}{M}$. Then, for any collection $\{(x_1, y_1), \dots (x_N, y_N)\}$ of disjoint intervals with $\sum_1^N |x_j - y_j| < \delta$ we have
+ 	\[
+ 	\sum_1^N |F(x_j) - F(y_j)| \leq \sum_1^N M |x_j - y_j| = M\sum_1^N  |x_j - y_j| < M \delta = \varepsilon.
+ 	\]  
+ 	Thus, $F$ is absolutely continuous.\\
+ 	$( \Leftarrow )$ Suppose $F$ is absolutely continuous and $|F^{'}|\leq M$ a.e. Then, by the Fundamental Theorem of Calculus for Lebesgue Integrals, \[
+ 	F(y) - F(x) = \int_x^y F^{'}(t) dt
+ 	\]
+ 	\begin{eqnarray*}
+\text{	Thus, } F(y) - F(x) &=& \int_x^y F^{'}(t) dt\\
+ 		& \leq & \int_x^y |F^{'}(t)| dt \\
+ 		& \leq &  \int_x^y M dt \\
+ 		& = & M |x-y|. 
+ 	\end{eqnarray*}
+ \end{pf}
+
+ \item A set $E \subseteq [0,1]$ has the property that there exists $0<d<1$ such that for every $(\alpha, \beta)\subset [0,1]$, $m(E \cap (\alpha, \beta))>d(\beta-\alpha)$. Prove that $m(E)=1$. Hint: Lebesgue's differentiation.
+ \begin{pf}
+Since $m(E \cap (\alpha, \beta))>d(\beta-\alpha)$, \[
+\frac{m(E \cap (\alpha, \beta))}{d(\beta-\alpha)}=\frac{m(E \cap (\alpha, \beta))}{dm((\alpha, \beta))}>1.
+\]
+Consider $B(r, x_0)$ with $x_0 \in (\alpha, \beta) \subseteq (0,1)$, $x_0 = \frac{\alpha+ \beta}{2}$ and $r = \frac{\beta - \alpha}{2}$. Then, \begin{eqnarray*}
+ 	d & < & \frac{m(E \cap (\alpha, \beta))}{dm((\alpha, \beta))} \\
+ 	&=& \frac{m(E \cap B(r, x_0))}{ m(B(r, x_0))} \\
+ 	& = & \frac{1}{m(B(r, x_0))} \int_{B(r, x_0)} \chi_E \  dm 
+ \end{eqnarray*}
+ \[
+\text{Therefore, } \lim_{r \rightarrow 0} \frac{1}{m(B(r, x_0))} \int_{B(r, x_0)} \chi_E \  dm > \lim_{r \rightarrow 0}d \text{ and so } \chi_E(x_0) > d \text{ a.e. }
+\]
+Thus, $\chi_E(x_0)>0$ a.e. which implies $x_0 \in E$ for almost every $x_0 \in (0,1)$ and so $E = (0,1)$ a.e. Since $m((0,1))=1$ it must be the case that $m(E)=1$.
+ \end{pf}
+
+ \end{list}

@@ -1,0 +1,18 @@
+\begin{enumerate}
+\item Prove that any $\sa$ forms a monotone class.
+\begin{pf}
+ Consider some $\sa$ $\A$. Then, $\A$ is non-empty, closed under complements, and closed under countable unions. Since $\A$ is closed under arbitrary countable unions, $\A$ is closed under increasing countable unions. Also, since $\bigcap_j E_j = \left( \bigcup_j (E_j)^c \right)^c$, $\A$ is closed under arbitrary countable intersections. Thus, $\A$ is closed under decreasing countable intersections and so $\A$ is a monotone class. 
+\end{pf}
+
+\item Let $\{E_\lambda \}_{\lambda \in \Lambda}$ be a collection of monotone classes on a space $X$. Prove that $\bigcap_{\lambda \in \Lambda} E_\lambda$ is a monotone class on $X$.
+\begin{pf}
+Consider $\{Y_i \}_{i=1}^\infty \subset \bigcap_{\lambda \in \Lambda} E_{\lambda}$.  Then, for all $\lambda$,  $\{Y_i \}_{i=1}^\infty \subset  E_{\lambda}$ so,  $\bigcup_{i=1}^\infty Y_i \subset  E_{\lambda}$ for all $\lambda \in \Lambda$.  Thus, $\{E_\lambda \}_{\lambda \in \Lambda}$ is closed under countable increasing unions. \\
+Similarly, for all $\lambda$,  $\{Y_i \}_{i=1}^\infty \subset  E_{\lambda}$ so,  $\bigcap_{i=1}^\infty Y_i \subset  E_{\lambda}$ for all $\lambda \in \Lambda$.  Thus, $\{E_\lambda \}_{\lambda \in \Lambda}$ is closed under countable decreasing intersections.
+\end{pf}
+
+\item Prove that given any subset of the power set of $X$ there is a unique smallest monotone class containing the given subset.
+\begin{pf}
+ Suppose there exist two smallest monotone classes $M, N$. From (2) we know $M \cap N$ must be a monotone class. Then, since $M,N$ are the smallest monotone classes, $M \subset M \cap N$ and $N \subset M \cap N$.  But, $M \cap N \subset M$ and $M \cap N \subset N$ which implies $M = N$ and also that $M \cap N$ is a smaller monotone class. Thus, there must exist a unique smallest monotone class. 
+\end{pf}
+	
+\end{enumerate}
